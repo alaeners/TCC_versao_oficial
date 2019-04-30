@@ -17,6 +17,15 @@ import { RegisterLocalComponent } from './shared/register-local/register-local.c
 
 import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
 import { ListLocalComponent } from './shared/list-local/list-local.component';
+import { EvaluateLocalComponent } from './shared/evaluate-local/evaluate-local.component';
+import { DeleteLocalComponent } from './no-shared/delete-local/delete-local.component';
+import { DeleteUserComponent } from './no-shared/delete-user/delete-user.component';
+import { ListUserComponent } from './no-shared/list-user/list-user.component';
+import { MergeLocalComponent } from './no-shared/merge-local/merge-local.component';
+import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.component';
+import { RegisterUserComponent } from './no-shared/register-user/register-user.component';
+import { UpdateLocalComponent } from './no-shared/update-local/update-local.component';
+import { UpdateUserComponent } from './no-shared/update-user/update-user.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +35,17 @@ import { ListLocalComponent } from './shared/list-local/list-local.component';
         AboutComponent,
         DashboardComponent,
         RegisterLocalComponent,
-        ListLocalComponent
+        ListLocalComponent,
+        EvaluateLocalComponent,
+        DeleteLocalComponent,
+        DeleteUserComponent,
+        ListUserComponent,
+        MergeLocalComponent,
+        NotifyLocalComponent,
+        RegisterUserComponent,
+        UpdateLocalComponent,
+        UpdateUserComponent
+
     ],
     imports: [
         BrowserAnimationsModule,

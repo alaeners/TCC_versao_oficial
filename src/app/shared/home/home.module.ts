@@ -15,11 +15,6 @@ import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';*/
 
 import { HomeComponent } from './home.component';
-import { AboutComponent } from '../about/about.component';
-import { EvaluateLocalComponent } from '../evaluate-local/evaluate-local.component';
-import { ListLocalComponent } from '../list-local/list-local.component';
-import { RegisterLocalComponent } from '../register-local/register-local.component';
-
 
 @NgModule({
     imports: [
@@ -31,11 +26,7 @@ import { RegisterLocalComponent } from '../register-local/register-local.compone
         JwBootstrapSwitchNg2Module
       ],
     declarations: [
-      HomeComponent,
-      AboutComponent,
-      EvaluateLocalComponent,
-      ListLocalComponent,
-      RegisterLocalComponent
+      HomeComponent
     ],
     exports: [ HomeComponent ]
 })
