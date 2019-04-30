@@ -24,6 +24,8 @@ const routes: Routes = [
    // { path: 'shared/list-local',     component: ListLocalComponent },
     { path: 'shared/login',          component: LoginComponent },
     { path: 'shared/register-local', component: RegisterLocalComponent },
+    { path: 'shared/list-local',     component: ListLocalComponent },
+
 
     { path: 'no-shared/dashboard',   component: DashboardComponent },
 

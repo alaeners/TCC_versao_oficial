@@ -16,6 +16,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { RegisterLocalComponent } from './shared/register-local/register-local.component';
 
 import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
+import { ListLocalComponent } from './shared/list-local/list-local.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
         LoginComponent,
         AboutComponent,
         DashboardComponent,
-        RegisterLocalComponent
+        RegisterLocalComponent,
+        ListLocalComponent
     ],
     imports: [
         BrowserAnimationsModule,
