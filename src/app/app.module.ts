@@ -26,6 +26,8 @@ import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.comp
 import { RegisterUserComponent } from './no-shared/register-user/register-user.component';
 import { UpdateLocalComponent } from './no-shared/update-local/update-local.component';
 import { UpdateUserComponent } from './no-shared/update-user/update-user.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [
@@ -55,7 +57,8 @@ import { UpdateUserComponent } from './no-shared/update-user/update-user.compone
         RouterModule,
         AppRoutingModule,
         ComponentsModule,
-        ExamplesModule
+        ExamplesModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [],
     bootstrap: [AppComponent]
