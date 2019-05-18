@@ -26,7 +26,7 @@ import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.comp
 import { RegisterUserComponent } from './no-shared/register-user/register-user.component';
 import { UpdateLocalComponent } from './no-shared/update-local/update-local.component';
 import { UpdateUserComponent } from './no-shared/update-user/update-user.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
+//import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 import { AngularFireModule } from 'angularfire2';
@@ -66,8 +66,8 @@ import { AuthService } from './services/auth.service';
         ExamplesModule,
         AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
         AngularFireDatabaseModule,
-        AngularFireAuthModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+        AngularFireAuthModule
+        //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [AuthService],
     bootstrap: [AppComponent]
