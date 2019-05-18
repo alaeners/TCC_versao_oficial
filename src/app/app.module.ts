@@ -27,6 +27,13 @@ import { RegisterUserComponent } from './no-shared/register-user/register-user.c
 import { UpdateLocalComponent } from './no-shared/update-local/update-local.component';
 import { UpdateUserComponent } from './no-shared/update-user/update-user.component';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { AuthService } from './services/auth.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -55,9 +62,12 @@ import { UpdateUserComponent } from './no-shared/update-user/update-user.compone
         RouterModule,
         AppRoutingModule,
         ComponentsModule,
-        ExamplesModule
+        ExamplesModule,
+        AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
     ],
-    providers: [],
+    providers: [AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

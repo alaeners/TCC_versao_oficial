@@ -15,6 +15,7 @@ import { ListLocalComponent } from './shared/list-local/list-local.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
 import { RegisterLocalComponent } from './shared/register-local/register-local.component';
+import { NgbdModalBasic } from './components/modal/modal.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -28,6 +29,7 @@ const routes: Routes = [
 
 
     { path: 'no-shared/dashboard',   component: DashboardComponent },
+    { path: 'modal',                 component: NgbdModalBasic },
 
 
     { path: 'index',                component: ComponentsComponent },
