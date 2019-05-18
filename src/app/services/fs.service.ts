@@ -27,7 +27,7 @@ export class FsService {
       });
     });
   }
-  
+
   getBoard(id: string): Observable<any> {
     return new Observable((observer) => {
       this.ref.doc(id).get().then((doc) => {
@@ -41,7 +41,7 @@ export class FsService {
       });
     });
   }
-  
+
   postBoards(data): Observable<any> {
     return new Observable((observer) => {
       this.ref.add(data).then((doc) => {
@@ -51,7 +51,7 @@ export class FsService {
       });
     });
   }
-  
+
   updateBoards(id: string, data): Observable<any> {
     return new Observable((observer) => {
       this.ref.doc(id).set(data).then(() => {
@@ -59,7 +59,7 @@ export class FsService {
       });
     });
   }
-  
+
   deleteBoards(id: string): Observable<{}> {
     return new Observable((observer) => {
       this.ref.doc(id).delete().then(() => {
