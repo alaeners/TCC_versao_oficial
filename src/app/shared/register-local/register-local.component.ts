@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CepService } from '../../services/cep.service';
 import { Cep } from '../../cep';
+import { AngularFirestore } from '@angular/fire/firestore';
 import 'rxjs/add/operator/toPromise';
 
 
@@ -16,7 +17,26 @@ export class RegisterLocalComponent implements OnInit {
   focus1;
   cep = new Cep();
 
-  constructor(private cepService: CepService) {}
+  local = {
+    nome: '',
+    cnpj: '',
+    endereco: {
+      bairro: '',
+      localidade: '',
+      logradouro: '',
+      numero: '',
+      pais: '',
+      uf: '',
+      cep: ''
+    },
+    contato: {
+      email: '',
+      telefone: '',
+      website: ''
+    }
+};
+
+  constructor(private cepService: CepService, private firestore: AngularFirestore) { }
 
   ngOnInit() {
     const body = document.getElementsByTagName('body')[0];
@@ -35,6 +55,28 @@ export class RegisterLocalComponent implements OnInit {
 
   buscaCep() {
     this.cepService.buscaCep(this.cep.cep)
-    .then((cep: Cep) => this.cep = cep);
+      .then((cep: Cep) => this.cep = cep);
+  }
+
+  inserirLocal() {
+    const data = {
+      nome: this.local.nome,
+      cnpj: this.local.cnpj,
+      contato: {
+        email: this.local.contato.email,
+        telefone: this.local.contato.telefone,
+        website: this.local.contato.website
+      },
+      endereco: {
+        bairro: this.cep.bairro,
+        cep: this.cep.cep,
+        localidade: this.cep.localidade,
+        logradouro: this.cep.logradouro,
+        numero: this.local.endereco.numero,
+        pais: this.local.endereco.pais,
+        uf: this.cep.uf
+      }
+    };
+    return this.firestore.collection('locais').doc(this.local.nome).set(data);
   }
 }

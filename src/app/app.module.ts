@@ -35,6 +35,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AuthService } from './services/auth.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
     declarations: [
@@ -71,7 +72,7 @@ import { AuthService } from './services/auth.service';
         HttpModule
         //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
-    providers: [AuthService],
+    providers: [AuthService, AngularFirestore],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,93 +1,111 @@
-  <div class="wrapper">
-    <div class="page-header clear-filter" filter-color="orange">
-      <div class="page-header-image rellax-header" data-rellax-speed="-7"
-        style="background-image: url('assets/img/Radial-2.jpg');">
-      </div>
-      <div class="container">
-        <div class="content-center brand">
-          <div class="col-md-12 mr-auto">
-            <div class="card card-signup" style="overflow: auto; max-height: 440px;">
-              <div class="card-body">
-                <form class="form" method="" action="">
-                  <div>
-                    <h4 style="color:black">Cadastrar Estabelecimento</h4>
+<div class="wrapper">
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header-image rellax-header" data-rellax-speed="-7"
+      style="background-image: url('assets/img/Radial-2.jpg');">
+    </div>
+    <div class="container">
+      <div class="content-center brand">
+        <div class="col-md-12 mr-auto">
+          <div class="card card-signup" style="overflow: auto; max-height: 440px;">
+            <div class="card-body">
+              <form name="formlocal" class="form" method="post" #formCtrl="ngForm">
+                <div>
+                  <h4 style="color:black">Cadastrar Estabelecimento</h4>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons tech_laptop"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons tech_laptop"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Web Site Oficial..." required>
+                  <input type="text" name="website" [(ngModel)]="local.contato.website" class="form-control"
+                    placeholder="Web Site Oficial..." required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons shopping_shop"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons shopping_shop"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Nome do Local..." required>
+                  <input type="text" [(ngModel)]="local.nome" name="nome" class="form-control"
+                    placeholder="Nome do Local..." required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons business_badge"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons business_badge"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="CNPJ..." id="cnpj"
-                      [specialCharacters]="[ '-', '.', '/' ]" mask="00.000.000/0000-00" required>
+                  <input type="text" [(ngModel)]="local.cnpj" class="form-control" name="cnpj" placeholder="CNPJ..."
+                    id="cnpj" [specialCharacters]="[ '-', '.', '/' ]" mask="00.000.000/0000-00" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Email do Local..." autocomplete="">
+                  <input type="text" [(ngModel)]="local.contato.email" name="email" class="form-control"
+                    placeholder="Email do Local...">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons shopping_shop"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons transportation_bus-front-12"></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="CEP..." id="cep" name="cep" [(ngModel)]="cep.cep"
-                      [specialCharacters]="[ '-', '.' ]" mask="00.000-000" required>
+                  <input type="text" [(ngModel)]="local.contato.telefone" name="telefone" id="telefone" class="form-control"
+                    placeholder="Telefone..." required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons transportation_bus-front-12"></i></span>
                   </div>
-                  <button class="btn btn-primary btn-round" type="button" (click)="buscaCep()">Buscar</button>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons location_pin"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="logradouro" placeholder="Rua..." id="logradouro"
-                      [(ngModel)]="cep.logradouro" required>
+                  <input type="text" class="form-control" placeholder="CEP..." id="cep" name="cep" [(ngModel)]="cep.cep"
+                    [specialCharacters]="[ '-', '.' ]" mask="00.000-000" required>
+                </div>
+                <button class="btn btn-primary btn-round" type="button" (click)="buscaCep()">Buscar</button>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons location_pin"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons shopping_tag-content"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="numero" placeholder="Número ou S/A..." id="numero"
-                      required>
+                  <input type="text" class="form-control" name="logradouro" placeholder="Rua..." id="logradouro"
+                    [(ngModel)]="cep.logradouro" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons shopping_tag-content"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons objects_planet"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="bairro" placeholder="Bairro..." id="bairro"
-                      [(ngModel)]="cep.bairro" required>
+                  <input type="text" [(ngModel)]="local.endereco.numero" class="form-control" name="numero"
+                    placeholder="Número ou S/A..." id="numero" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons objects_planet"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons objects_planet"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="cidade" placeholder="Cidade..." id="localidade"
-                      [(ngModel)]="cep.localidade" required>
+                  <input type="text" class="form-control" name="bairro" placeholder="Bairro..." id="bairro"
+                    [(ngModel)]="cep.bairro" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons objects_planet"></i></span>
                   </div>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="now-ui-icons objects_planet"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="uf" placeholder="Estado/UF..." id="uf"
-                      [(ngModel)]="cep.uf" required>
+                  <input type="text" class="form-control" name="cidade" placeholder="Cidade..." id="localidade"
+                    [(ngModel)]="cep.localidade" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons objects_planet"></i></span>
                   </div>
-                  <div class="footer text-center">
-                    <a href="#pablo" class="btn btn-primary btn-round">Cadastrar</a>
+                  <input type="text" class="form-control" name="uf" placeholder="Estado/UF..." id="uf"
+                    [(ngModel)]="cep.uf" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons objects_planet"></i></span>
                   </div>
-                </form>
-              </div>
+                  <input type="text" class="form-control" name="Pais" placeholder="País..." id="pais"
+                    [(ngModel)]="local.endereco.pais" required>
+                </div>
+                <div class="footer text-center">
+                  <button type="buton" class="btn btn-primary btn-round" (click)="inserirLocal()">Cadastrar</button>
+
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
