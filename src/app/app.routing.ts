@@ -10,7 +10,6 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 // minha criação
 import { AboutComponent } from './shared/about/about.component';
 import { EvaluateLocalComponent } from './shared/evaluate-local/evaluate-local.component';
-//import { HomeComponent } from './shared/home/home.component';
 import { ListLocalComponent } from './shared/list-local/list-local.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
@@ -20,9 +19,6 @@ import { NgbdModalBasic } from './components/modal/modal.component';
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'shared/about',          component: AboutComponent },
-   // { path: 'shared/evaluate-local', component: EvaluateLocalComponent },
-   // { path: 'index',                 component: HomeComponent },
-   // { path: 'shared/list-local',     component: ListLocalComponent },
     { path: 'shared/login',          component: LoginComponent },
     { path: 'shared/register-local', component: RegisterLocalComponent },
     { path: 'shared/list-local',     component: ListLocalComponent },
