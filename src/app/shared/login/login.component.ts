@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
     selector: 'app-login',
@@ -12,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+    @ViewChild('openModal') openModal: ElementRef;
     data: Date = new Date();
     focus;
     focus1;
@@ -19,15 +19,22 @@ export class LoginComponent implements OnInit {
         email: '',
         password: ''
     };
-    constructor(private router: Router, private authService: AuthService) { }
+    constructor(private router: Router, private authService: AuthService, private modalService: NgbModal) { }
 
-    signInWithEmail() {
+    signInWithEmail(content) {
+        if (this.user.email !== '' || this.user.password !== '') {
         this.authService.signInRegular(this.user.email, this.user.password)
             .then((res) => {
                 console.log(res);
                 this.router.navigate(['no-shared/dashboard']);
             })
-            .catch((err) => this.router.navigate(['modal']));
+            .catch((error) => {
+                this.modalService.open(content, { });
+            });
+        }
+    }
+    closeModal(content) {
+        this.modalService.dismissAll(content);
     }
 
 

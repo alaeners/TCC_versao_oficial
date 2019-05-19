@@ -3,7 +3,7 @@ import { CepService } from '../../services/cep.service';
 import { Cep } from '../../cep';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'rxjs/add/operator/toPromise';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-local',
@@ -36,7 +36,7 @@ export class RegisterLocalComponent implements OnInit {
     }
 };
 
-  constructor(private cepService: CepService, private firestore: AngularFirestore) { }
+  constructor(private router: Router, private cepService: CepService, private firestore: AngularFirestore) { }
 
   ngOnInit() {
     const body = document.getElementsByTagName('body')[0];
