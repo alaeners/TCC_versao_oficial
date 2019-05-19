@@ -20,6 +20,7 @@ export class RegisterLocalComponent implements OnInit {
   local = {
     nome: '',
     cnpj: '',
+    tipo: '',
     endereco: {
       bairro: '',
       localidade: '',
@@ -62,6 +63,7 @@ export class RegisterLocalComponent implements OnInit {
     const data = {
       nome: this.local.nome,
       cnpj: this.local.cnpj,
+      tipo: this.local.tipo,
       contato: {
         email: this.local.contato.email,
         telefone: this.local.contato.telefone,
