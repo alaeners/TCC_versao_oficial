@@ -22,8 +22,7 @@ const routes: Routes = [
     { path: 'shared/login',          component: LoginComponent },
     { path: 'shared/register-local', component: RegisterLocalComponent },
     { path: 'shared/list-local',     component: ListLocalComponent },
-
-
+    { path: 'shared/evaluate-local', component: EvaluateLocalComponent },
     { path: 'no-shared/dashboard',   component: DashboardComponent },
     { path: 'modal',                 component: NgbdModalBasicComponent },
 

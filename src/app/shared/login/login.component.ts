@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     constructor(private router: Router, private authService: AuthService, private modalService: NgbModal) { }
 
     signInWithEmail(content) {
-        if (this.user.email !== '' || this.user.password !== '') {
         this.authService.signInRegular(this.user.email, this.user.password)
             .then((res) => {
                 console.log(res);
@@ -31,13 +30,10 @@ export class LoginComponent implements OnInit {
             .catch((error) => {
                 this.modalService.open(content, { });
             });
-        }
     }
     closeModal(content) {
         this.modalService.dismissAll(content);
     }
-
-
     ngOnInit() {
         var body = document.getElementsByTagName('body')[0];
         body.classList.add('login-page');
