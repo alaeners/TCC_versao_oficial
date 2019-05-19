@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-evaluate-local',
   templateUrl: './evaluate-local.component.html',
   styleUrls: ['./evaluate-local.component.css']
 })
-export class EvaluateLocalComponent implements OnInit {
+export class EvaluateLocalComponent implements OnInit, OnDestroy {
 
   constructor() { }
 

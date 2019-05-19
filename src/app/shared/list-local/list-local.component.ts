@@ -1,31 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AngularFireDatabase, } from 'angularfire2/database';
 
 @Component({
   selector: 'app-list-local',
   templateUrl: './list-local.component.html',
   styleUrls: ['./list-local.component.scss']
 })
-export class ListLocalComponent implements OnInit {
+export class ListLocalComponent implements OnInit, OnDestroy {
 
   data: Date = new Date();
   focus;
   focus1;
 
-  constructor() { }
+  constructor(db: AngularFireDatabase) {
+
+  }
+
+
+
 
   ngOnInit() {
-      var body = document.getElementsByTagName('body')[0];
-      body.classList.add('list-local-page');
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('list-local-page');
 
-      var navbar = document.getElementsByTagName('nav')[0];
-      navbar.classList.add('navbar-transparent');
+    const navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.add('navbar-transparent');
   }
   ngOnDestroy() {
-      var body = document.getElementsByTagName('body')[0];
-      body.classList.remove('list-local-page');
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.remove('list-local-page');
 
-      var navbar = document.getElementsByTagName('nav')[0];
-      navbar.classList.remove('navbar-transparent');
+    const navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.remove('navbar-transparent');
   }
-
 }

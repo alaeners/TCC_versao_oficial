@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CepService } from '../../services/cep.service';
 import { Cep } from '../../cep';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './register-local.component.html',
   styleUrls: ['./register-local.component.scss']
 })
-export class RegisterLocalComponent implements OnInit {
+export class RegisterLocalComponent implements OnInit, OnDestroy {
 
   data: Date = new Date();
   focus;
