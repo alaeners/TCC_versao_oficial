@@ -35,6 +35,13 @@
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="now-ui-icons business_badge"></i></span>
+                  </div>
+                  <input type="text" [(ngModel)]="local.tipo" class="form-control" name="cnpj" placeholder="Tipo..."
+                    id="tipo" [specialCharacters]="[ '-', '.', '/' ]" mask="00.000.000/0000-00" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
                     <span class="input-group-text"><i class="now-ui-icons ui-1_email-85"></i></span>
                   </div>
                   <input type="text" [(ngModel)]="local.contato.email" name="email" class="form-control"
