@@ -36,6 +36,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AuthService } from './services/auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { UserComponent } from './no-shared/user/user.component';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
         NotifyLocalComponent,
         RegisterUserComponent,
         UpdateLocalComponent,
-        UpdateUserComponent
+        UpdateUserComponent,
+        UserComponent
 
     ],
     imports: [
