@@ -33,12 +33,56 @@
                   <input type="text" [(ngModel)]="local.cnpj" class="form-control" name="cnpj" placeholder="CNPJ..."
                     id="cnpj" [specialCharacters]="[ '-', '.', '/' ]" mask="00.000.000/0000-00" required>
                 </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="now-ui-icons business_badge"></i></span>
+                <div class="col-sm-6 col-lg-3 mb-4" style="color: black">
+                  <p class="category" style="color: black">Escolha o tipo de local:</p>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option1">
+                      <span class="form-check-sign"></span>
+                      Shopping Center
+                    </label>
                   </div>
-                  <input type="text" [(ngModel)]="local.tipo" class="form-control" name="cnpj" placeholder="Tipo..."
-                    id="tipo" [specialCharacters]="[ '-', '.', '/' ]" mask="00.000.000/0000-00" required>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option2" checked="">
+                      <span class="form-check-sign"></span>
+                      Bares e Restaurantes
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option3" checked="">
+                      <span class="form-check-sign"></span>
+                      Praças e Eventos
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option4" checked="">
+                      <span class="form-check-sign"></span>
+                      Eventos Culturais
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option5" checked="">
+                      <span class="form-check-sign"></span>
+                      Eventos Musicais
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="option6" checked="">
+                      <span class="form-check-sign"></span>
+                      Outros
+                    </label>
+                  </div>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -51,8 +95,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="now-ui-icons shopping_shop"></i></span>
                   </div>
-                  <input type="text" [(ngModel)]="local.contato.telefone" name="telefone" id="telefone" class="form-control"
-                    placeholder="Telefone..." required>
+                  <input type="text" [(ngModel)]="local.contato.telefone" name="telefone" id="telefone"
+                    class="form-control" placeholder="Telefone..." required>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
