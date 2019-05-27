@@ -31,6 +31,8 @@ import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
 import { MergeLocalComponent } from './no-shared/merge-local/merge-local.component';
 import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.component';
 import { UserComponent } from './no-shared/user/user.component';
+import { ListCardComponent } from './shared/list-local/list-card/list-card.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     declarations: [
@@ -40,6 +42,7 @@ import { UserComponent } from './no-shared/user/user.component';
         AboutComponent,
         RegisterLocalComponent,
         ListLocalComponent,
+        ListCardComponent,
         EvaluateLocalComponent,
         DeleteLocalComponent,
         UpdateLocalComponent,
@@ -60,7 +63,9 @@ import { UserComponent } from './no-shared/user/user.component';
         AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-        HttpModule
+        HttpModule,
+        NgxPaginationModule
+
         //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [AuthService, AngularFirestore],

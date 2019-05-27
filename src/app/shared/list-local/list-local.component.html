@@ -1,70 +1,23 @@
-<div class="page-header" filter-color="orange">
-  <div class="page-header-image" style="background-image:url(assets/img/Radial-2.jpg)"></div>
-
-  <div class="container">
-    <div class="col-md-4 content-center">
-      <div class="card card-login card-plain">
-        <div class="content-center brand">
-          <img class="n-logo" src="assets/img/now-logo.png" alt="">
-          <h4>Escolha o tipo de estabelecimento que deseja avaliar, clicando nos botões abaixo!</h4>
-          <button (click)="shopping()" class="btn btn-primary btn-round" type="button">
-            <i class="now-ui-icons shopping_shop"></i> Shopping Center </button>
-          <button (click)="bar()" class="btn btn-primary btn-round" type="button">
-            <i class="now-ui-icons ui-2_favourite-28"></i> Bares e Restaurantes </button>
-          <button (click)="pracas()" class="btn btn-primary btn-round" type="button">
-            <i class="now-ui-icons location_map-big"></i> Praças e Eventos </button>
-          <button (click)="cultural()" class="btn btn-primary btn-round" type="button">
-            <i class="now-ui-icons location_world"></i> Eventos Culturais </button>
-          <button (click)="musical()" class="btn btn-primary btn-round" type="button">
-            <i class="now-ui-icons tech_headphones"></i> Eventos Musicais </button>
-          <button (click)="outros()" class="btn btn-primary btn-round" type="button">
-            <i class="now-ui-icons education_atom"></i> Outros </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="page-header" filter-color="orange">
+  <div class="page-header" filter-color="orange">
     <div class="page-header-image" style="background-image:url(assets/img/Radial-2.jpg)"></div>
-  
-  
-  
     <div class="container">
-      <div class="content-center brand">
-        <div class="col-md-12 mr-auto">
-          <div class="card card-signup" style="overflow: auto; max-height: 440px;">
-            <div class="card" *ngFor="let local of locais">
-              <div class="content-center brand">
-  
-                <div class="col-md-12 mr-auto">
-                  <ul class="nav nav-tabs justify-content-center" role="tablist">
-                    <li class="nav-item">
-                      <span style="color: black">{{local.nome}}</span>
-                    </li>
-                  </ul>
-                </div>
-  
-  
-                <div class="card-body">
-                  <div class="tab-content text-center">
-                    <div class="tab-pane active" id="home" role="tabpanel">
-                      <p style="color: black">Endereco: {{local.endereco.logradouro}}, {{local.endereco.numero}},
-                        {{local.endereco.bairro}},
-                        {{local.endereco.localidade}}</p>
-                      <p style="color: black">Telefone: {{local.contato.telefone}}</p>
-                      <p style="color: black">E-mail: {{local.contato.email}}</p>
-                      <p style="color: black">Site: {{local.endereco.website}}</p>
-                      <div class="content-center">
-                        <button class="btn btn-primary btn-round" type="button">Avaliar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="col-md-4 content-center">
+        <div class="card card-login card-plain">
+          <div class="content-center brand">
+            <img class="n-logo" src="assets/img/now-logo.png" alt="">
+            <h4>Escolha o tipo de estabelecimento que deseja avaliar, clicando nos botões abaixo!</h4>
+            <button (click)="shopping()" class="btn btn-primary btn-round" type="button">
+              <i class="now-ui-icons shopping_shop"></i> Shopping Center </button>
+            <button (click)="bar()" class="btn btn-primary btn-round" type="button">
+              <i class="now-ui-icons ui-2_favourite-28"></i> Bares e Restaurantes </button>
+            <button (click)="pracas()" class="btn btn-primary btn-round" type="button">
+              <i class="now-ui-icons location_map-big"></i> Praças e Eventos </button>
+            <button (click)="cultural()" class="btn btn-primary btn-round" type="button">
+              <i class="now-ui-icons location_world"></i> Eventos Culturais </button>
+            <button (click)="musical()" class="btn btn-primary btn-round" type="button">
+              <i class="now-ui-icons tech_headphones"></i> Eventos Musicais </button>
+            <button (click)="outros()" class="btn btn-primary btn-round" type="button">
+              <i class="now-ui-icons education_atom"></i> Outros </button>
           </div>
         </div>
       </div>
