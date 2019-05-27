@@ -1,62 +1,32 @@
 <div class="page-header" filter-color="orange">
   <div class="page-header-image" style="background-image:url(assets/img/Radial-2.jpg)"></div>
+</div>
+<div>
   <div class="container">
-    <div class="col-md-6 content-center">
-      <div class="card card-login card-plain">
-        <!-- Search form -->
-        <form class="form-inline waves-light" mdbWavesEffect>
-          <div class="md-form mt-0">
-            <input class="form-control col-md-6" type="text" placeholder="Buscar">
-          </div>
-        </form>
-      </div>
-      <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
-          <div class="card card-plain">
-            <div class="card-header" role="tab" id="headingOne">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Collapsible Group Item #1
-        
-              <i class="now-ui-icons arrows-1_minimal-down"></i>
-                </a>
-            </div>
-        
-            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-          <div class="card card-plain">
-            <div class="card-header" role="tab" id="headingTwo">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
-        
-                <i class="now-ui-icons arrows-1_minimal-down"></i>
-                </a>
-            </div>
-            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-              </div>
-            </div>
-          </div>
-          <div class="card card-plain">
-            <div class="card-header" role="tab" id="headingThree">
-            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Collapsible Group Item #3
-        
-              <i class="now-ui-icons arrows-1_minimal-down"></i>
-              </a>
-            </div>
-            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+    <div class="col-md-12 content-center">
+      <div class="card" *ngFor="let local of locais">
+        <div class="card-header">
+          <ul class="nav nav-tabs justify-content-center" role="tablist">
+            <li class="nav-item">
+              <span style="color: black">{{local.nome}}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-body">
+          <div class="tab-content text-center">
+            <div class="tab-pane active" id="home" role="tabpanel">
+              <p>Endereco: {{local.endereco.logradouro}}, {{local.endereco.numero}}, {{local.endereco.bairro}}, {{local.endereco.localidade}}</p>
+              <p>Telefone: {{local.contato.telefone}}</p>
+              <p>E-mail: {{local.contato.email}}</p>
+              <p>Site: {{local.endereco.website}}</p>
+              <div class="content-center">
+                <button class="btn btn-primary btn-round" type="button">Avaliar</button>
               </div>
             </div>
           </div>
         </div>
-
-
+      </div>
     </div>
   </div>
 </div>

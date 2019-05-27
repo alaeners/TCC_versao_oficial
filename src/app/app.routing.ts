@@ -15,15 +15,17 @@ import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
 import { RegisterLocalComponent } from './shared/register-local/register-local.component';
 import { NgbdModalBasicComponent } from './components/modal/modal.component';
+import { UserComponent } from './no-shared/user/user.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'shared/about',          component: AboutComponent },
     { path: 'shared/login',          component: LoginComponent },
     { path: 'shared/register-local', component: RegisterLocalComponent },
-    { path: 'shared/list-local',     component: ListLocalComponent },
+    { path: 'shared/list-local/:tipo',     component: ListLocalComponent },
     { path: 'shared/evaluate-local', component: EvaluateLocalComponent },
     { path: 'no-shared/dashboard',   component: DashboardComponent },
+    { path: 'no-shared/user',   component: UserComponent },
     { path: 'modal',                 component: NgbdModalBasicComponent },
 
 
