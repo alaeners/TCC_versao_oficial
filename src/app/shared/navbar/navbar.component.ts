@@ -15,11 +15,14 @@ export class NavbarComponent implements OnInit {
 
     constructor(private router: Router, public location: Location, private element: ElementRef, private authService: AuthService) {
         this.sidebarVisible = false;
+        this.authService.user.subscribe(user => this.show = (user !== null) );
+        console.log(this.show);
     }
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        
     }
 
     sidebarOpen() {

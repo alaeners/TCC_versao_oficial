@@ -18,21 +18,21 @@ import { NgbdModalBasicComponent } from './components/modal/modal.component';
 import { UserComponent } from './no-shared/user/user.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'index', pathMatch: 'full' },
-    { path: 'shared/about',          component: AboutComponent },
-    { path: 'shared/login',          component: LoginComponent },
-    { path: 'shared/register-local', component: RegisterLocalComponent },
-    { path: 'shared/list-local/:tipo',     component: ListLocalComponent },
-    { path: 'shared/evaluate-local', component: EvaluateLocalComponent },
-    { path: 'no-shared/dashboard',   component: DashboardComponent },
-    { path: 'no-shared/user',   component: UserComponent },
-    { path: 'modal',                 component: NgbdModalBasicComponent },
+    { path: '', redirectTo: 'index',    pathMatch: 'full' },
+    { path: 'shared/about',             component: AboutComponent },
+    { path: 'shared/login',             component: LoginComponent },
+    { path: 'shared/register-local',    component: RegisterLocalComponent },
+    { path: 'shared/list-local/:tipo',  component: ListLocalComponent },
+    { path: 'shared/evaluate-local',    component: EvaluateLocalComponent },
+    { path: 'no-shared/dashboard',      component: DashboardComponent },
+    { path: 'no-shared/user',           component: UserComponent },
+    { path: 'modal',                    component: NgbdModalBasicComponent },
 
 
-    { path: 'index',                component: ComponentsComponent },
-    { path: 'nucleoicons',          component: NucleoiconsComponent },
-    { path: 'examples/landing',     component: LandingComponent },
-    { path: 'examples/profile',     component: ProfileComponent }
+    { path: 'index',                    component: ComponentsComponent },
+    { path: 'nucleoicons',              component: NucleoiconsComponent },
+    { path: 'examples/landing',         component: LandingComponent },
+    { path: 'examples/profile',         component: ProfileComponent }
 ];
 
 @NgModule({

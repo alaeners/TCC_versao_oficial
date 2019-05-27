@@ -32,7 +32,11 @@ export class ListLocalComponent implements OnInit, OnDestroy {
     const navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
     this.tipo = this.route.snapshot.paramMap.get('tipo');
-    this.locaisservice.returnLocalByTipo(this.tipo);
+
+    if (this.tipo !== 'todos'){
+      this.locaisservice.returnLocalByTipo(this.tipo);
+    }
+    
     this.locaisservice.getLocais().subscribe(locais => this.locais = locais );
 
   }
@@ -42,5 +46,26 @@ export class ListLocalComponent implements OnInit, OnDestroy {
 
     const navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
+  }
+  shopping() {
+    this.router.navigate(['shared/list-local', 'shopping']);
+  }
+  bar() {
+    this.router.navigate(['shared/list-local', 'bar']);
+  }
+  pracas() {
+    this.router.navigate(['shared/list-local', 'praca']);
+  }
+
+  cultural() {
+    this.router.navigate(['shared/list-local', 'cultural']);
+  }
+
+  musical() {
+    this.router.navigate(['shared/list-local', 'musical']);
+  }
+
+  outros() {
+    this.router.navigate(['shared/list-local', 'outros']);
   }
 }

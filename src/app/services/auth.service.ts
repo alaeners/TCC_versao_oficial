@@ -5,13 +5,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
-import * as admin from 'firebase-admin';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private user: Observable<firebase.User>;
+  public user: Observable<firebase.User>;
 
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
@@ -45,7 +44,8 @@ export class AuthService {
     return this._firebaseAuth.auth.signOut();
   }
   LogOut() {
-    this.user = null;
+    this._firebaseAuth.auth.signOut();
+    //this.user = null;
   }
 
   get authenticated(): boolean {

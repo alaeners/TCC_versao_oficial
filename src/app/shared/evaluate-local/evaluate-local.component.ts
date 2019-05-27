@@ -24,26 +24,6 @@ export class EvaluateLocalComponent implements OnInit, OnDestroy {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
   }
-  shopping() {
-    this.router.navigate(['shared/list-local', 'shopping']);
-  }
-  bar() {
-    this.router.navigate(['shared/list-local', 'bar']);
-  }
-  praca() {
-    this.router.navigate(['shared/list-local', 'praca']);
-  }
 
-  cultural() {
-    this.router.navigate(['shared/list-local', 'cultural']);
-  }
-
-  musical() {
-    this.router.navigate(['shared/list-local', 'musical']);
-  }
-
-  outros() {
-    this.router.navigate(['shared/list-local', 'outros']);
-  }
 
 }
