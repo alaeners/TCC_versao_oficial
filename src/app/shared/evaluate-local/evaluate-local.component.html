@@ -9,7 +9,7 @@
                     <form name="formlocal" class="form" method="post" #formCtrl="ngForm">
                         <div class="input-group form-group-no-border input-lg"
                             [ngClass]="{'input-group-focus':focus===true}">
-                            <input name="pesquisa" type="text" class="form-control" [(ngModel)]="local.contato.website"
+                            <input name="pesquisa" type="text" class="form-control" 
                                 placeholder="Digite o nome ou endereço local você deseja avaliar ..."
                                 (focus)="focus=true" (blur)="focus=false" required>
                         </div>
