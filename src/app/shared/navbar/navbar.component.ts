@@ -60,9 +60,6 @@ export class NavbarComponent implements OnInit {
         }
     };
 
-    navItemIsHidden() {
-    };
-
     LogOut(content) {
         this.authService.LogOut();
         this.show = this.authService.authenticated;

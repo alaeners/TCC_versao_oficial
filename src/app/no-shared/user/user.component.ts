@@ -17,7 +17,7 @@ export class UserComponent implements OnInit, OnDestroy {
     nome: '',
     email: '',
     password: ''
-};
+  };
   constructor(private router: Router, private authService: AuthService, private firestore: AngularFirestore) { }
 
   ngOnInit() {
@@ -36,35 +36,36 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   signup() {
-      const data = {
-        email: this.user.email,
-        nome: this.user.nome,
-        senha: this.user.password
-      };
+    const data = {
+      email: this.user.email,
+      nome: this.user.nome,
+      senha: this.user.password
+    };
+    
     this.authService.signUp(this.user.email, this.user.password)
-    .then((res) => {
-      this.firestore.collection('usuarios').add(data);
-      this.router.navigate(['no-shared/dashboard']);
-  })
-    .catch(function (error) {alert(error)});
+      .then((res) => {
+        this.firestore.collection('usuarios').add(data);
+        this.router.navigate(['no-shared/dashboard']);
+      })
+      .catch(function (error) { alert(error) });
 
   }
 
   //listAllUsers(nextPageToken) {
-    // List batch of users, 1000 at a time.
-    // admin.auth().listUsers(1000, nextPageToken)
-    //   .then(function (listUsersResult) {
-    //     listUsersResult.users.forEach(function (userRecord) {
-    //       console.log('user', userRecord.toJSON());
-    //     });
-    //     if (listUsersResult.pageToken) {
-    //       // List next batch of users.
-    //       listAllUsers(listUsersResult.pageToken);
-    //     }
-    //   })
-    //   .catch(function (error) {
-    //     console.log('Error listing users:', error);
-    //   });
+  // List batch of users, 1000 at a time.
+  // admin.auth().listUsers(1000, nextPageToken)
+  //   .then(function (listUsersResult) {
+  //     listUsersResult.users.forEach(function (userRecord) {
+  //       console.log('user', userRecord.toJSON());
+  //     });
+  //     if (listUsersResult.pageToken) {
+  //       // List next batch of users.
+  //       listAllUsers(listUsersResult.pageToken);
+  //     }
+  //   })
+  //   .catch(function (error) {
+  //     console.log('Error listing users:', error);
+  //   });
   //}
 
   // updateUser() {
