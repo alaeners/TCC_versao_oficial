@@ -6,13 +6,16 @@
                 <div class="content-center brand">
                     <img class="n-logo" src="assets/img/now-logo.png" alt="">
                     <h4>Informe o nome do local ou endereço que deseja avaliar e clique em pesquisar!</h4>
-                    <div class="input-group form-group-no-border input-lg"
-                        [ngClass]="{'input-group-focus':focus===true}">
-                        <input name="pesquisa" type="text" class="form-control" placeholder="Digite o nome ou endereço local você deseja avaliar ..."
-                            (focus)="focus=true" (blur)="focus=false" required>
-                    </div>
-                    <button (click)="buscaLocal()" class="btn btn-primary btn-round" type="button">
-                        <i class="icon-search icon-2x "></i> Pesquisar </button>
+                    <form name="formlocal" class="form" method="post" #formCtrl="ngForm">
+                        <div class="input-group form-group-no-border input-lg"
+                            [ngClass]="{'input-group-focus':focus===true}">
+                            <input name="pesquisa" type="text" class="form-control" [(ngModel)]="local.contato.website"
+                                placeholder="Digite o nome ou endereço local você deseja avaliar ..."
+                                (focus)="focus=true" (blur)="focus=false" required>
+                        </div>
+                        <button (click)="buscaLocal()" class="btn btn-primary btn-round" type="button">
+                            <i class="icon-search icon-2x "></i> Pesquisar </button>
+                    </form>
                 </div>
             </div>
         </div>
