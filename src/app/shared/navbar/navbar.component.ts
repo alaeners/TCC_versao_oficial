@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
-    private show: boolean = this.authService.authenticated;
+    public show: boolean = this.authService.authenticated;
 
     constructor(private router: Router, public location: Location, private element: ElementRef, private authService: AuthService) {
         this.sidebarVisible = false;

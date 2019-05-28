@@ -7,8 +7,6 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
 
-import { ListCardComponent } from './list-card.component';
-
 @NgModule({
     imports: [
         CommonModule,
@@ -19,8 +17,7 @@ import { ListCardComponent } from './list-card.component';
         JwBootstrapSwitchNg2Module
       ],
     declarations: [
-      ListCardComponent
     ],
-    exports: [ ListCardComponent ]
+    exports: [  ]
 })
 export class ListCardModule { }

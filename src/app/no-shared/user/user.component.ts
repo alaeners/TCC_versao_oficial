@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 
 @Component({
@@ -9,11 +11,14 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, OnDestroy {
+  focus;
+  focus1;
   user = {
+    nome: '',
     email: '',
     password: ''
 };
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private firestore: AngularFirestore) { }
 
   ngOnInit() {
     var body = document.getElementsByTagName('body')[0];
@@ -30,17 +35,22 @@ export class UserComponent implements OnInit, OnDestroy {
     navbar.classList.remove('navbar-transparent');
   }
 
-  signup(content) {
+  signup() {
+      const data = {
+        email: this.user.email,
+        nome: this.user.nome,
+        senha: this.user.password
+      };
     this.authService.signUp(this.user.email, this.user.password)
     .then((res) => {
-      console.log(res);
+      this.firestore.collection('usuarios').add(data);
       this.router.navigate(['no-shared/dashboard']);
   })
     .catch(function (error) {alert(error)});
 
   }
 
-  listAllUsers(nextPageToken) {
+  //listAllUsers(nextPageToken) {
     // List batch of users, 1000 at a time.
     // admin.auth().listUsers(1000, nextPageToken)
     //   .then(function (listUsersResult) {
@@ -55,7 +65,7 @@ export class UserComponent implements OnInit, OnDestroy {
     //   .catch(function (error) {
     //     console.log('Error listing users:', error);
     //   });
-  }
+  //}
 
   // updateUser() {
   //   admin.auth().updateUser(uid, {

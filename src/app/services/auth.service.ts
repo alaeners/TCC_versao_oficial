@@ -45,7 +45,6 @@ export class AuthService {
   }
   LogOut() {
     this._firebaseAuth.auth.signOut();
-    //this.user = null;
   }
 
   get authenticated(): boolean {

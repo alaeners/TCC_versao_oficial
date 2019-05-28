@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./evaluate-local.component.css']
 })
 export class EvaluateLocalComponent implements OnInit, OnDestroy {
-
+  focus;
+  focus1;
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -24,6 +25,8 @@ export class EvaluateLocalComponent implements OnInit, OnDestroy {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
   }
+
+  buscaLocal(){}
 
 
 }

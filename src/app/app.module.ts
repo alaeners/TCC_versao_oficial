@@ -42,14 +42,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
         AboutComponent,
         RegisterLocalComponent,
         ListLocalComponent,
-        ListCardComponent,
         EvaluateLocalComponent,
         DeleteLocalComponent,
         UpdateLocalComponent,
         DashboardComponent,
         MergeLocalComponent,
         NotifyLocalComponent,
-        UserComponent
+        UserComponent,
+        ListCardComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -64,7 +64,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         HttpModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        
 
         //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
