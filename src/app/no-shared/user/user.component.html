@@ -25,9 +25,9 @@
                                                     [ngClass]="{'star-checked': star.checked}"></span>
                                             </div>
                                             <button class="btn btn-primary btn-round" type="button"
-                                                (click)="avaliar(user)">cadastrar</button>
+                                                (click)="Cadastrar(user)">Deletar</button>
                                             <button class="btn btn-primary btn-round" type="button"
-                                                (click)="deleteLocal(user)" >Deletar</button>
+                                                (click)="Editar(user)" >Editar</button>
                                             <pagination-controls (pageChange)="pageChange($event)"
                                                 class="my-pagination"></pagination-controls>
                                         </div>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <button class="btn btn-warning btn-round" type="button"
-            (click)="deleteLocal(user)" >Deletar</button>
+            (click)="deleteLocal(user)" >Cadastrar</button>
         </div>
     </div>
 </div>
