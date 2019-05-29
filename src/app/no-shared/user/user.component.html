@@ -2,38 +2,44 @@
     <div class="page-header-image" style="background-image:url(assets/img/Radial-2.jpg)"></div>
     <div class="container">
         <div class="col-md-4 content-center">
-            <form name="userform" method="post" #formCtrl="ngForm">
-                <div class="content">
-                    <div class="input-group form-group-no-border input-lg"
-                        [ngClass]="{'input-group-focus':focus===true}">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="now-ui-icons users_circle-08"></i></span>
+            <div class="card card-login card-plain">
+                <div class="content-center brand">
+                    <img class="n-logo" src="assets/img/now-logo.png" alt="">
+                    <div class="card" *ngFor="let user of usuarios | paginate: config">
+                        <div class="content-center brand">
+                            <div class="col-md-12 mr-auto">
+                                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                                    <li class="nav-item">
+                                        <span style="color: black">{{user.nome}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content text-center">
+                                    <div class="tab-pane active" id="home" role="tabpanel">
+                                        <p style="color: black">Email: {{user.email}},</p>
+                                        <p style="color: black">Senha: {{user.password}}</p>
+                                        <div class="content-center">
+                                            <div>
+                                                <span class="fa fa-star mr-2 star" *ngFor="let star of rate"
+                                                    [ngClass]="{'star-checked': star.checked}"></span>
+                                            </div>
+                                            <button class="btn btn-primary btn-round" type="button"
+                                                (click)="avaliar(user)">cadastrar</button>
+                                            <button class="btn btn-primary btn-round" type="button"
+                                                (click)="deleteLocal(user)" >Deletar</button>
+                                            <pagination-controls (pageChange)="pageChange($event)"
+                                                class="my-pagination"></pagination-controls>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <input name="nome" type="text" class="form-control" placeholder="Nome do usuário..."
-                            (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.nome" required>
-                    </div>
-                    <div class="input-group form-group-no-border input-lg"
-                        [ngClass]="{'input-group-focus':focus===true}">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="now-ui-icons users_circle-08"></i></span>
-                        </div>
-                        <input name="email" type="text" class="form-control" placeholder="E-mail..."
-                            (focus)="focus=true" (blur)="focus=false" [(ngModel)]="user.email" required>
-                    </div>
-                    <div class="input-group form-group-no-border input-lg"
-                        [ngClass]="{'input-group-focus':focus1===true}">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
-                        </div>
-                        <input name="password" type="password" placeholder="Senha..." class="form-control"
-                            (focus)="focus1=true" (blur)="focus1=false" [(ngModel)]="user.password" required />
                     </div>
                 </div>
-                <div class="footer text-center">
-                    <button type="buton" class="btn btn-primary btn-round btn-lg btn-block" style="margin-bottom: 20px"
-                        (click)="signup()" [disabled]="formCtrl.form.invalid">Cadastrar</button>
-                </div>
-            </form>
+            </div>
+            <button class="btn btn-warning btn-round" type="button"
+            (click)="deleteLocal(user)" >Deletar</button>
         </div>
     </div>
 </div>

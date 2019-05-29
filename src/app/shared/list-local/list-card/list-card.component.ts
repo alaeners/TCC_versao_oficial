@@ -22,9 +22,6 @@ export class ListCardComponent implements OnInit, OnDestroy {
   rate = new Array<Star>();
   public show: boolean = this.authService.authenticated;
 
-
-
-
   constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService, private authService: AuthService) {
     this.authService.user.subscribe(user => this.show = (user !== null) );
     console.log(this.show);
