@@ -18,6 +18,7 @@ import { NgbdModalBasicComponent } from './components/modal/modal.component';
 import { UserComponent } from './no-shared/user/user.component';
 import { ListCardComponent } from './shared/list-local/list-card/list-card.component';
 import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
+import { UserActionComponent } from './no-shared/user/user-action/user-action.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index',                pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'shared/evaluate-screen',               component: EvaluateScreenComponent },
     { path: 'no-shared/dashboard',                  component: DashboardComponent },
     { path: 'no-shared/user',                       component: UserComponent },
+    { path: 'no-shared/user-action',                component: UserActionComponent },
     { path: 'modal',                                component: NgbdModalBasicComponent },
 
     { path: 'index',                                component: ComponentsComponent },

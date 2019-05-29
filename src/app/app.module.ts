@@ -34,6 +34,7 @@ import { UserComponent } from './no-shared/user/user.component';
 import { ListCardComponent } from './shared/list-local/list-card/list-card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
+import { UserActionComponent } from './no-shared/user/user-action/user-action.component';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen
         NotifyLocalComponent,
         UserComponent,
         ListCardComponent,
-        EvaluateScreenComponent
+        EvaluateScreenComponent,
+        UserActionComponent
     ],
     imports: [
         BrowserAnimationsModule,
