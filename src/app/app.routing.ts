@@ -4,9 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 //ja estavam
 import { ComponentsComponent } from './components/components.component';
-import { LandingComponent } from './examples/landing/landing.component';
-import { ProfileComponent } from './examples/profile/profile.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+
 // minha criação
 import { AboutComponent } from './shared/about/about.component';
 import { EvaluateLocalComponent } from './shared/evaluate-local/evaluate-local.component';
@@ -35,9 +33,6 @@ const routes: Routes = [
     { path: 'modal',                                component: NgbdModalBasicComponent },
 
     { path: 'index',                                component: ComponentsComponent },
-    { path: 'nucleoicons',                          component: NucleoiconsComponent },
-    { path: 'examples/landing',                     component: LandingComponent },
-    { path: 'examples/profile',                     component: ProfileComponent }
 ];
 
 @NgModule({

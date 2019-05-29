@@ -65,11 +65,6 @@ Now Ui Kit Angular
 │   │   ├── app.module.ts
 │   │   ├── app.routing.ts
 │   │   ├── components
-│   │   │   ├── basicelements
-│   │   │   │   ├── basicelements.component.html
-│   │   │   │   ├── basicelements.component.scss
-│   │   │   │   ├── basicelements.component.spec.ts
-│   │   │   │   └── basicelements.component.ts
 │   │   │   ├── components.component.html
 │   │   │   ├── components.component.ts
 │   │   │   ├── components.module.ts
@@ -78,47 +73,16 @@ Now Ui Kit Angular
 │   │   │   │   ├── modal.component.scss
 │   │   │   │   ├── modal.component.spec.ts
 │   │   │   │   └── modal.component.ts
-│   │   │   ├── navigation
-│   │   │   │   ├── navigation.component.html
-│   │   │   │   ├── navigation.component.scss
-│   │   │   │   ├── navigation.component.spec.ts
-│   │   │   │   └── navigation.component.ts
 │   │   │   ├── notification
 │   │   │   │   ├── notification.component.html
 │   │   │   │   ├── notification.component.scss
 │   │   │   │   ├── notification.component.spec.ts
 │   │   │   │   └── notification.component.ts
-│   │   │   ├── nucleoicons
-│   │   │   │   ├── nucleoicons.component.html
-│   │   │   │   ├── nucleoicons.component.scss
-│   │   │   │   ├── nucleoicons.component.spec.ts
-│   │   │   │   └── nucleoicons.component.ts
 │   │   │   └── typography
 │   │   │       ├── typography.component.html
 │   │   │       ├── typography.component.scss
 │   │   │       ├── typography.component.spec.ts
 │   │   │       └── typography.component.ts
-│   │   ├── examples
-│   │   │   ├── examples.component.html
-│   │   │   ├── examples.component.scss
-│   │   │   ├── examples.component.spec.ts
-│   │   │   ├── examples.component.ts
-│   │   │   ├── examples.module.ts
-│   │   │   ├── landing
-│   │   │   │   ├── landing.component.html
-│   │   │   │   ├── landing.component.scss
-│   │   │   │   ├── landing.component.spec.ts
-│   │   │   │   └── landing.component.ts
-│   │   │   ├── login
-│   │   │   │   ├── login.component.html
-│   │   │   │   ├── login.component.scss
-│   │   │   │   ├── login.component.spec.ts
-│   │   │   │   └── login.component.ts
-│   │   │   └── profile
-│   │   │       ├── profile.component.html
-│   │   │       ├── profile.component.scss
-│   │   │       ├── profile.component.spec.ts
-│   │   │       └── profile.component.ts
 │   │   └── shared
 │   │       └── navbar
 │   │           ├── navbar.component.html

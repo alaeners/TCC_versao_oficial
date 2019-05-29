@@ -40,6 +40,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    
     var body = document.getElementsByTagName('body')[0];
     body.classList.add('user-page');
 
@@ -56,6 +57,8 @@ export class UserComponent implements OnInit, OnDestroy {
 
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
+
+    
   }
 
   pageChange(newPage: number) {

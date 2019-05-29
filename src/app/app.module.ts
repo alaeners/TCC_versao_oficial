@@ -13,7 +13,6 @@ import { AuthService } from './services/auth.service';
 
 import { environment } from '../environments/environment';
 import { ComponentsModule } from './components/components.module';
-import { ExamplesModule } from './examples/examples.module';
 
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
@@ -63,7 +62,6 @@ import { UserActionComponent } from './no-shared/user/user-action/user-action.co
         RouterModule,
         AppRoutingModule,
         ComponentsModule,
-        ExamplesModule,
         AngularFireModule.initializeApp(environment.firebase, 'angular-auth-firebase'),
         AngularFireDatabaseModule,
         AngularFireAuthModule,

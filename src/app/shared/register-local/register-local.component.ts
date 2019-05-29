@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { CepService } from '../../services/cep.service';
 import { Cep } from '../../cep';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-register-local',
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 export class RegisterLocalComponent implements OnInit, OnDestroy {
 
   data: Date = new Date();
+  @ViewChild('openModal') openModal: ElementRef;
   focus;
   focus1;
   cep = new Cep();
@@ -37,7 +39,7 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
     }
 };
 
-  constructor(private router: Router, private cepService: CepService, private firestore: AngularFirestore) { }
+  constructor(private router: Router, private cepService: CepService, private firestore: AngularFirestore, private modalService: NgbModal) { }
 
   ngOnInit() {
     const body = document.getElementsByTagName('body')[0];
@@ -54,9 +56,16 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
     navbar.classList.remove('navbar-transparent');
   }
 
+  closeModal(content) {
+    this.modalService.dismissAll(content);
+}
+
   buscaCep() {
     this.cepService.buscaCep(this.cep.cep)
-      .then((cep: Cep) => this.cep = cep);
+      .then((cep: Cep) => this.cep = cep)
+      .catch((error) => {
+          this.modalService.open({ });
+      });
   }
 
   inserirLocal() {
@@ -80,5 +89,6 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
       }
     };
     return this.firestore.collection('locais').doc(this.local.nome).set(data);
+    
   }
 }

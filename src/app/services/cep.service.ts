@@ -15,7 +15,9 @@ export class CepService {
       .toPromise()
       .then(response => {
         return this.converterRespostaParaCep(response.json())
-      })
+      }).catch((error) => {
+        return window.alert(error.message)
+      });
   }
 
   private converterRespostaParaCep(cepNaResposta): Cep {
