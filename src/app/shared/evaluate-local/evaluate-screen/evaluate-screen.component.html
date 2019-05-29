@@ -17,12 +17,19 @@
                             <div class="card-body">
                                 <div class="tab-content text-center">
                                     <div class="tab-pane active" id="avalia-screen" role="tabpanel">
-
-
-
+                                        <p style="color: black">Endereco: {{local.endereco.logradouro}},
+                                            {{local.endereco.numero}},
+                                            {{local.endereco.bairro}},
+                                            {{local.endereco.localidade}}</p>
+                                        <p style="color: black">Telefone: {{local.contato.telefone}}</p>
+                                        <p style="color: black">E-mail: {{local.contato.email}}</p>
+                                        <p style="color: black">Site: {{local.endereco.website}}</p>
+                                        <p style="color: black">Nota: {{local.nota}}</p>
                                         <div class="content-center">
-                                            <button class="btn btn-warning btn-round" type="button"
-                                                (click)="avaliar(local)">Avaliar</button>
+                                            <div class="content-center">
+                                                <button class="btn btn-warning btn-round" type="button"
+                                                    (click)="avaliar(local)">Avaliar</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -33,4 +40,3 @@
             </div>
         </div>
     </div>
-</div>
