@@ -91,4 +91,16 @@ export class ListCardComponent implements OnInit, OnDestroy {
       this.rate[index].checked = true;
     }
   }
+
+  updateLocal() {
+    this.locaisservice.updateLocal('Evando', {} as Local)
+      .then(() => {
+        alert('local alterado');
+      })
+      .catch(
+        () => {
+          alert('local nao foi alterado');
+        }
+      );
+  }
 }

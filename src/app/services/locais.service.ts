@@ -40,8 +40,29 @@ export class LocaisService {
       });
   }
 
+  getDocumentById(id: string): AngularFirestoreDocument<Local> {
+    return this.afs.collection('locais').doc(id);
+  }
+
   deleteById(id: string) {
-    return this.afs.collection('locais').doc(id).delete();
+    return this.getDocumentById(id).delete();
+  }
+
+  updateLocal(id: string, local: Local) {
+    local.id = id;
+
+    // mock - remover, pois o objeto que sera enviado para realizar o update ja é um objeto com todas as alteracoes desejadas
+    local = {
+      id: id,
+      contato: {
+        email: 'emailalterado@gmail.com',
+        telefone: '23666666666',
+        website: 'sitealterado.com'
+      },
+
+    } as Local;
+
+    return this.getDocumentById(id).update(local);
   }
 
 }
