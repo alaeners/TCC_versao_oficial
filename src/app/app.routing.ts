@@ -32,7 +32,7 @@ const routes: Routes = [
     { path: 'no-shared/user-action',                component: UserActionComponent },
     { path: 'modal',                                component: NgbdModalBasicComponent },
 
-    { path: 'index',                                component: ComponentsComponent },
+    { path: 'index',                                component: ComponentsComponent }
 ];
 
 @NgModule({
