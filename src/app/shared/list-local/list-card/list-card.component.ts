@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { Star } from 'app/models/Star';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-list-card',
@@ -19,8 +20,15 @@ export class ListCardComponent implements OnInit, OnDestroy {
   config: any;
   collection = [];
   rate = new Array<Star>();
+  public show: boolean = this.authService.authenticated;
 
-  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService) {
+
+
+
+  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService, private authService: AuthService) {
+    this.authService.user.subscribe(user => this.show = (user !== null) );
+    console.log(this.show);
+    
     this.config = {
       currentPage: 1,
       itemsPerPage: 1
