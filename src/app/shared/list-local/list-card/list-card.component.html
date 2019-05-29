@@ -26,9 +26,15 @@
                                         <p style="color: black">Site: {{local.endereco.website}}</p>
                                         <p style="color: black">Nota: {{local.nota}}</p>
                                         <div class="content-center">
-                                            <button class="btn btn-primary btn-round" type="button">Avaliar</button>
-                                            <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
-
+                                            <div>
+                                                <span class="fa fa-star mr-2 star" *ngFor="let star of rate"
+                                                    [ngClass]="{'star-checked': star.checked}"></span>
+                                            </div>
+                                            <button class="btn btn-warning btn-round" type="button">Avaliar</button>
+                                            <button class="btn btn-primary btn-round" type="button"
+                                                (click)="deleteLocal(local)">Deletar</button>
+                                            <pagination-controls (pageChange)="pageChange($event)"
+                                                class="my-pagination"></pagination-controls>
                                         </div>
                                     </div>
                                 </div>
