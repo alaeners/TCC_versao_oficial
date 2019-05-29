@@ -61,4 +61,9 @@ export class UserComponent implements OnInit, OnDestroy {
   pageChange(newPage: number) {
     this.router.navigate(['no-shared/user'], { queryParams: { page: newPage } });
   }
+
+  cadastrar(){
+    this.router.navigate(['no-shared/user-action']);
+    
+  }
 }
