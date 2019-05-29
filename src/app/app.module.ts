@@ -33,6 +33,7 @@ import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.comp
 import { UserComponent } from './no-shared/user/user.component';
 import { ListCardComponent } from './shared/list-local/list-card/list-card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
 
 @NgModule({
     declarations: [
@@ -49,7 +50,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
         MergeLocalComponent,
         NotifyLocalComponent,
         UserComponent,
-        ListCardComponent
+        ListCardComponent,
+        EvaluateScreenComponent
     ],
     imports: [
         BrowserAnimationsModule,
