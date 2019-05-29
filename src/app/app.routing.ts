@@ -17,6 +17,7 @@ import { RegisterLocalComponent } from './shared/register-local/register-local.c
 import { NgbdModalBasicComponent } from './components/modal/modal.component';
 import { UserComponent } from './no-shared/user/user.component';
 import { ListCardComponent } from './shared/list-local/list-card/list-card.component';
+import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index',                pathMatch: 'full' },
@@ -25,17 +26,16 @@ const routes: Routes = [
     { path: 'shared/register-local',                component: RegisterLocalComponent },
     { path: 'shared/list-local',                    component: ListLocalComponent },
     { path: 'shared/list-local/list-card/:tipo',    component: ListCardComponent },
-
     { path: 'shared/evaluate-local',                component: EvaluateLocalComponent },
+    { path: 'shared/evaluate-screen',               component: EvaluateScreenComponent },
     { path: 'no-shared/dashboard',                  component: DashboardComponent },
     { path: 'no-shared/user',                       component: UserComponent },
     { path: 'modal',                                component: NgbdModalBasicComponent },
 
-
     { path: 'index',                                component: ComponentsComponent },
     { path: 'nucleoicons',                          component: NucleoiconsComponent },
     { path: 'examples/landing',                     component: LandingComponent },
-{ path: 'examples/profile',                         component: ProfileComponent }
+    { path: 'examples/profile',                     component: ProfileComponent }
 ];
 
 @NgModule({
