@@ -63,7 +63,15 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
   }
 
   inserirLocal() {
-    return this.firestore.collection('locais').doc(this.local.nome).set(this.local);
+    return this.firestore.collection('locais').doc(this.local.nome).set(this.local)
+      .then(() => {
+        alert('Local inserido com sucesso!');
+        this.router.navigate(['/no-shared/dashboard']);
+      })
+      .catch(() => {
+        alert('Erro ao inserir o local');
+        this.router.navigate(['/no-shared/dashboard']);
+      });;
 
   }
 
@@ -75,9 +83,15 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
     this.locaisService.updateLocal(this.local)
       .then(() => {
         alert('Local atualizado com sucesso!');
+        this.router.navigate([this.applicationState.getPathToBack()]);
       })
       .catch(() => {
         alert('Erro ao atualizar o local');
+        this.router.navigate([this.applicationState.getPathToBack()]);
       });
+  }
+
+  cancel(): void {
+    this.router.navigate([this.applicationState.getPathToBack()]);
   }
 }

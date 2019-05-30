@@ -102,6 +102,7 @@ export class ListCardComponent implements OnInit, OnDestroy {
   editLocal(local: Local): void {
     this.applicationState.setState(StateEnum.EDIT);
     this.applicationState.setLocalToEdit(local);
+    this.applicationState.setPathToBack(this.router.url);
     this.router.navigate(['/shared/register-local']);
   }
 }

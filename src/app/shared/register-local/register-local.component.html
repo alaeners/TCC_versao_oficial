@@ -167,7 +167,7 @@
                     (click)="inserirLocal()">Cadastrar</button>
                   <button *ngIf="isStateEdit()" class="btn btn-success btn-round mr-5" type="button"
                     (click)="update()">Salvar</button>
-                  <button *ngIf="isStateEdit()" class="btn btn-primary btn-round" type="button">Cancelar</button>
+                  <button *ngIf="isStateEdit()" class="btn btn-primary btn-round" type="button" (click)="cancel()">Cancelar</button>
                 </div>
               </form>
             </div>

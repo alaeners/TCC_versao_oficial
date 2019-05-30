@@ -8,8 +8,10 @@ import { Local } from 'app/models/Local';
 export class ApplicationStateService {
 
   private state: StateEnum;
-  
+
   private local: Local;
+
+  private pathToBackAfterAction: string;
 
   constructor() { }
 
@@ -20,4 +22,8 @@ export class ApplicationStateService {
   setLocalToEdit(local: Local): void { this.local = local; }
 
   getLocalToEdit(): Local { return this.local; }
+
+  setPathToBack(path: string): void { this.pathToBackAfterAction = path; }
+
+  getPathToBack(): string { return this.pathToBackAfterAction; }
 }
