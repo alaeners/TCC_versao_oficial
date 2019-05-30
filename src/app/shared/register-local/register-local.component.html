@@ -15,7 +15,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">acesso restrito</h5>
                   </div>
                   <div class="modal-body content-center">
-                    Ops! Algo deu errado... 
+                    Ops! Algo deu errado...
                     <p>Verifique o CEP digitado.</p>
                   </div>
                   <div class="modal-footer">
@@ -163,7 +163,11 @@
                     [(ngModel)]="local.endereco.pais" required>
                 </div>
                 <div class="footer text-center">
-                  <button type="buton" class="btn btn-primary btn-round" (click)="inserirLocal()">Cadastrar</button>
+                  <button *ngIf="!isStateEdit()" class="btn btn-primary btn-round" type="buton"
+                    (click)="inserirLocal()">Cadastrar</button>
+                  <button *ngIf="isStateEdit()" class="btn btn-success btn-round mr-5" type="button"
+                    (click)="update()">Salvar</button>
+                  <button *ngIf="isStateEdit()" class="btn btn-primary btn-round" type="button">Cancelar</button>
                 </div>
               </form>
             </div>

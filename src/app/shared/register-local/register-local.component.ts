@@ -5,6 +5,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ApplicationStateService } from '../application-state/application-state.service';
+import { StateEnum } from '../application-state/state-enum';
+import { Local } from 'app/models/Local';
+import { Endereco } from 'app/models/Endereco';
+import { Contato } from 'app/models/Contato';
+import { LocaisService } from 'app/services/locais.service';
 
 @Component({
   selector: 'app-register-local',
@@ -18,28 +24,16 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   cep = new Cep();
-
   local = {
-    nome: '',
-    cnpj: '',
-    tipo: '',
-    endereco: {
-      bairro: '',
-      localidade: '',
-      logradouro: '',
-      numero: '',
-      pais: '',
-      uf: '',
-      cep: ''
-    },
-    contato: {
-      email: '',
-      telefone: '',
-      website: ''
-    }
-};
+    endereco: {} as Endereco,
+    contato: {} as Contato
+  } as Local;
 
-  constructor(private router: Router, private cepService: CepService, private firestore: AngularFirestore, private modalService: NgbModal) { }
+  constructor(private router: Router, private cepService: CepService, private firestore: AngularFirestore, private modalService: NgbModal, private applicationState: ApplicationStateService, private locaisService: LocaisService) {
+    if (applicationState.getState() === StateEnum.EDIT) {
+      this.local = applicationState.getLocalToEdit();
+    }
+  }
 
   ngOnInit() {
     const body = document.getElementsByTagName('body')[0];
@@ -58,37 +52,32 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
 
   closeModal(content) {
     this.modalService.dismissAll(content);
-}
+  }
 
   buscaCep() {
     this.cepService.buscaCep(this.cep.cep)
       .then((cep: Cep) => this.cep = cep)
       .catch((error) => {
-          this.modalService.open({ });
+        this.modalService.open({});
       });
   }
 
   inserirLocal() {
-    const data = {
-      nome: this.local.nome,
-      cnpj: this.local.cnpj,
-      tipo: this.local.tipo,
-      contato: {
-        email: this.local.contato.email,
-        telefone: this.local.contato.telefone,
-        website: this.local.contato.website
-      },
-      endereco: {
-        bairro: this.cep.bairro,
-        cep: this.cep.cep,
-        localidade: this.cep.localidade,
-        logradouro: this.cep.logradouro,
-        numero: this.local.endereco.numero,
-        pais: this.local.endereco.pais,
-        uf: this.cep.uf
-      }
-    };
-    return this.firestore.collection('locais').doc(this.local.nome).set(data);
-    
+    return this.firestore.collection('locais').doc(this.local.nome).set(this.local);
+
+  }
+
+  isStateEdit(): boolean {
+    return this.applicationState.getState() == StateEnum.EDIT;
+  }
+
+  update(): void {
+    this.locaisService.updateLocal(this.local)
+      .then(() => {
+        alert('Local atualizado com sucesso!');
+      })
+      .catch(() => {
+        alert('Erro ao atualizar o local');
+      });
   }
 }

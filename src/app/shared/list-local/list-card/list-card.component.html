@@ -30,6 +30,7 @@
                                                 <span class="fa fa-star mr-2 star" *ngFor="let star of rate"
                                                     [ngClass]="{'star-checked': star.checked}"></span>
                                             </div>
+                                            <button class="btn btn-success btn-round" type="button" (click)="editLocal(local)" *ngIf="show">Editar</button>
                                             <button class="btn btn-warning btn-round" type="button" (click)="avaliar(local)" >Avaliar</button>
                                             <button class="btn btn-primary btn-round" type="button" (click)="deleteLocal(local)" *ngIf="show">Deletar</button>
                                             <pagination-controls (pageChange)="pageChange($event)"

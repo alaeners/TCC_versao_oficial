@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { Star } from 'app/models/Star';
 import { AuthService } from '../../../services/auth.service';
+import { ApplicationStateService } from 'app/shared/application-state/application-state.service';
+import { StateEnum } from 'app/shared/application-state/state-enum';
 
 @Component({
   selector: 'app-list-card',
@@ -22,10 +24,10 @@ export class ListCardComponent implements OnInit, OnDestroy {
   rate = new Array<Star>();
   public show: boolean = this.authService.authenticated;
 
-  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService, private authService: AuthService) {
-    this.authService.user.subscribe(user => this.show = (user !== null) );
+  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService, private authService: AuthService, private applicationState: ApplicationStateService) {
+    this.authService.user.subscribe(user => this.show = (user !== null));
     console.log(this.show);
-    
+
     this.config = {
       currentPage: 1,
       itemsPerPage: 1
@@ -97,15 +99,9 @@ export class ListCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateLocal() {
-    this.locaisservice.updateLocal('Evando', {} as Local)
-      .then(() => {
-        alert('local alterado');
-      })
-      .catch(
-        () => {
-          alert('local nao foi alterado');
-        }
-      );
+  editLocal(local: Local): void {
+    this.applicationState.setState(StateEnum.EDIT);
+    this.applicationState.setLocalToEdit(local);
+    this.router.navigate(['/shared/register-local']);
   }
 }
