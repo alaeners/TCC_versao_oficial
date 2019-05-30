@@ -10,40 +10,37 @@
                             <div class="col-md-12 mr-auto">
                                 <ul class="nav nav-tabs justify-content-center" role="tablist">
                                     <li class="nav-item">
-                                        <span style="color: black">NOME DO LOCAL AQUI </span>
+                                        <span>NOME DO LOCAL AQUI </span>
                                     </li>
                                 </ul>
                             </div>
                             <div class="card-body">
                                 <div class="tab-content text-center">
-                                    <div class="tab-pane active" id="avalia-screen" role="tabpanel">
-                                            <p style="color: black">Permite a entrada de cão guia? </p>
-
-                                        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate bootstrap-switch-on"
-                                            style="width: 72px;">
-
-                                            <div class="bootstrap-switch-container"
-                                                style="width: 122px; margin-left: 0px;"><span
-                                                    class="bootstrap-switch-handle-on bootstrap-switch-primary"
-                                                    style="width: 50px;">SIM</span><span class="bootstrap-switch-label"
-                                                    style="width: 26px;">&nbsp;</span><span
-                                                    class="bootstrap-switch-handle-off bootstrap-switch-default"
-                                                    style="width: 50px;">NÃO</span><input type="checkbox"
-                                                    name="checkbox" class="bootstrap-switch" data-on-label="ON"
-                                                    data-off-label="OFF"></div>
+                                    <div *ngFor="let question of evaluationQuestions">
+                                        <div class="d-flex justify-content-center">
+                                            <span>{{question.desc}} </span>
                                         </div>
-                                        <p style="color: black">Possui banheiros adaptados ?  </p>
-                                        <p style="color: black">Possui marcadores de chão? </p>
-                                        <p style="color: black">As pessoas são treinadas para atender pessoas cegas ou com baixa cegueira?</p>
-                                        <p style="color: black">Os cocumentos, menus possuem braile para pessoas cegas?</p>
-                                        <p style="color: black">Possuí alguém treinado para transcrever a experiência da utilização do serviço?</p>
-
-
+                                        <div class="form-check form-check-inline mt-0 mb-3">
+                                            <input class="form-check-input" type="radio"
+                                                [name]="question.option[0].name" [id]="question.option[0].id"
+                                                [value]="true" [(ngModel)]="question.option[0].value">
+                                            <label class="form-check-label pl-0"
+                                                [for]="question.option[0].id">{{question.option[0].desc}}
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline mt-0 mb-3">
+                                            <input class="form-check-input" type="radio"
+                                                [name]="question.option[1].name" [id]="question.option[1].id"
+                                                [value]="false" [(ngModel)]="question.option[1].value">
+                                            <label class="form-check-label pl-0"
+                                                [for]="question.option[1].id">{{question.option[1].desc}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="content-center">
                                         <div class="content-center">
-                                            <div class="content-center">
-                                                <button class="btn btn-warning btn-round" type="button"
-                                                    (click)="avaliar(local)">Avaliar</button>
-                                            </div>
+                                            <button class="btn btn-warning btn-round" type="button"
+                                                (click)="avaliar(local)">Avaliar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -54,3 +51,4 @@
             </div>
         </div>
     </div>
+</div>
