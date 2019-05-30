@@ -11,7 +11,7 @@ import { Component, OnInit, Renderer, OnDestroy } from '@angular/core';
 })
 
 export class ComponentsComponent implements OnInit, OnDestroy {
-    data : Date = new Date();
+    data: Date = new Date();
 
     page = 4;
     page1 = 5;
@@ -21,30 +21,30 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     focus2;
 
     //date: {year: number, month: number};
-   // model: NgbDateStruct;
+    // model: NgbDateStruct;
 
-   // public isCollapsed = true;
-  //  public isCollapsed1 = true;
-   // public isCollapsed2 = true;
+    // public isCollapsed = true;
+    //  public isCollapsed1 = true;
+    // public isCollapsed2 = true;
 
     state_icon_primary = true;
-    constructor(){}
+    constructor() { }
 
     //constructor( private renderer : Renderer, config: NgbAccordionConfig) {
-        //config.closeOthers = true;
-        //config.type = 'info';
+    //config.closeOthers = true;
+    //config.type = 'info';
     //}
-//    isWeekend(date: NgbDateStruct) {
- //       const d = new Date(date.year, date.month - 1, date.day);
- //       return d.getDay() === 0 || d.getDay() === 6;
-   // }
+    //    isWeekend(date: NgbDateStruct) {
+    //       const d = new Date(date.year, date.month - 1, date.day);
+    //       return d.getDay() === 0 || d.getDay() === 6;
+    // }
 
-  //  isDisabled(date: NgbDateStruct, current: {month: number}) {
+    //  isDisabled(date: NgbDateStruct, current: {month: number}) {
     //    return date.month !== current.month;
-  //  }
+    //  }
 
     ngOnInit() {
-    //  var rellaxHeader = new Rellax('.rellax-header');
+        //  var rellaxHeader = new Rellax('.rellax-header');
 
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
