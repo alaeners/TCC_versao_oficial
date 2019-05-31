@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from 'app/models/Question';
 import { QuestionOption } from 'app/models/QuestionOption';
+import { LocaisService } from 'app/services/locais.service';
+import { ActivatedRoute } from '@angular/router';
+import { Local } from 'app/models/Local';
+import { DocumentSnapshot } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-evaluate-screen',
@@ -8,8 +12,14 @@ import { QuestionOption } from 'app/models/QuestionOption';
   styleUrls: ['./evaluate-screen.component.scss']
 })
 export class EvaluateScreenComponent implements OnInit {
+  local = {} as Local;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private locaisservice: LocaisService) {
+    this.locaisservice.getDocumentById(this.route.snapshot.paramMap.get('id')).get()
+      .subscribe((local: DocumentSnapshot<Local>) => {
+        this.local = local.data();
+      });
+  }
 
   evaluationQuestions: Array<Question>;
 
@@ -21,6 +31,7 @@ export class EvaluateScreenComponent implements OnInit {
 
     this.evaluationQuestions = [
       {
+        id: 'cao_guia',
         desc: 'Permite a entrada de cão guia?',
         option: [
           {
@@ -36,6 +47,7 @@ export class EvaluateScreenComponent implements OnInit {
         ] as Array<QuestionOption>
       } as Question,
       {
+        id: 'banheiros_adaptados',
         desc: 'Possui banheiros adaptados',
         option: [
           {
@@ -51,6 +63,7 @@ export class EvaluateScreenComponent implements OnInit {
         ] as Array<QuestionOption>
       } as Question,
       {
+        id: 'marcadores_chao',
         desc: 'Possui marcadores de chão?',
         option: [
           {
@@ -66,6 +79,7 @@ export class EvaluateScreenComponent implements OnInit {
         ] as Array<QuestionOption>
       } as Question,
       {
+        id: 'cegas_baixa_cegueira',
         desc: 'As pessoas são treinadas para atender pessoas cegas ou com baixa cegueira?',
         option: [
           {
@@ -81,6 +95,7 @@ export class EvaluateScreenComponent implements OnInit {
         ] as Array<QuestionOption>
       } as Question,
       {
+        id: 'menu_braile',
         desc: 'Os cocumentos, menus possuem braile para pessoas cegas?',
         option: [
           {
@@ -96,6 +111,7 @@ export class EvaluateScreenComponent implements OnInit {
         ] as Array<QuestionOption>
       } as Question,
       {
+        id: 'transcrever_experiencia',
         desc: 'Possuí alguém treinado para transcrever a experiência da utilização do serviço?',
         option: [
           {
@@ -116,8 +132,19 @@ export class EvaluateScreenComponent implements OnInit {
   ngOnDestroy() {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
+
     var body = document.getElementsByTagName('body')[0];
     body.classList.remove('evaluate-screen-page');
+  }
+
+  saveEvaluation(): void {
+    this.locaisservice.saveEvaluation(this.local, this.evaluationQuestions)
+      .then((data) => {
+        alert('Avaliação cadastrada');
+      })
+      .catch(() => {
+        alert('Ocorreu um erro ao cadastrar a avaliação');
+      });
   }
 
 }

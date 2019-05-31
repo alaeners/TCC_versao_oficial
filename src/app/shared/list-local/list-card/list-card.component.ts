@@ -51,11 +51,11 @@ export class ListCardComponent implements OnInit, OnDestroy {
       );
     }
 
-    this.calculateEvaluation(null);
+    // this.calculateEvaluation(null);
   }
 
   pageChange(newPage: number) {
-    this.router.navigate(['shared/list-local/list-card/:tipo'], { queryParams: { page: newPage } });
+    this.router.navigate(['shared/list-local/list-card', this.route.snapshot.paramMap.get('tipo')], { queryParams: { page: newPage } });
   }
 
   ngOnInit() {
@@ -92,9 +92,11 @@ export class ListCardComponent implements OnInit, OnDestroy {
   }
 
   calculateEvaluation(local: Local): void {
-    const note = 2;
+    if (local.nota === 6) {
+      local.nota--;
+    }
 
-    for (let index = 0; index <= note; index++) {
+    for (let index = 0; index <= local.nota; index++) {
       this.rate[index].checked = true;
     }
   }
@@ -104,5 +106,9 @@ export class ListCardComponent implements OnInit, OnDestroy {
     this.applicationState.setLocalToEdit(local);
     this.applicationState.setPathToBack(this.router.url);
     this.router.navigate(['/shared/register-local']);
+  }
+
+  avaliar(local: Local): void {
+    this.router.navigate(['shared/evaluate-screen', local.nome]);
   }
 }

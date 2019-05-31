@@ -26,7 +26,7 @@ const routes: Routes = [
     { path: 'shared/list-local',                    component: ListLocalComponent },
     { path: 'shared/list-local/list-card/:tipo',    component: ListCardComponent },
     { path: 'shared/evaluate-local',                component: EvaluateLocalComponent },
-    { path: 'shared/evaluate-screen',               component: EvaluateScreenComponent },
+    { path: 'shared/evaluate-screen/:id',           component: EvaluateScreenComponent },
     { path: 'no-shared/dashboard',                  component: DashboardComponent },
     { path: 'no-shared/user',                       component: UserComponent },
     { path: 'no-shared/user-action',                component: UserActionComponent },

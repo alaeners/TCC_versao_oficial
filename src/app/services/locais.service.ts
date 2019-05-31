@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore'
 import { Observable } from 'rxjs';
 import { Local } from '../models/Local'
+import { Question } from 'app/models/Question';
+
 import 'rxjs/add/operator/map';
+import { Evaluation } from 'app/models/Evaluation';
 
 
 @Injectable({
@@ -48,10 +51,43 @@ export class LocaisService {
     return this.getDocumentById(id).delete();
   }
 
-  updateLocal(local: Local) {
+  updateLocal(local: Local): Promise<void> {
     return this.getDocumentById(local.id).update(local);
   }
 
+  saveEvaluation(local: Local, evaluationQuestions: Array<Question>): Promise<void> {
+    let evaluationNote = this.calculateEvaluation(evaluationQuestions);
+
+    return this.createEvaluation(local.id, evaluationNote)
+      .then(() => {
+        local.nota = evaluationNote.note;
+        return this.updateLocal(local);
+      })
+      .catch();
+  }
+
+  private createEvaluation(id: string, evaluation: Evaluation): Promise<void> {
+    return this.afs.collection('avaliacoes').doc(id).set(evaluation);
+  }
+
+  private calculateEvaluation(evaluationQuestions: Array<Question>): Evaluation {
+    let evaluationNote = { note: 0 } as Evaluation;
+
+    evaluationQuestions.forEach(q => {
+      if (q.option[0].value) {
+        evaluationNote.note++;
+      }
+
+      if (q.option[0].value) {
+        evaluationNote[q.id] = q.option[0].value;
+      } else {
+        evaluationNote[q.id] = false;
+      }
+
+    });
+
+    return evaluationNote;
+  }
 }
 
 
