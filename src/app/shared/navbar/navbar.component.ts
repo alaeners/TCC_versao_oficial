@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
     selector: 'app-navbar',
@@ -12,6 +13,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     public show: boolean = this.authService.authenticated;
+    private route: Router;
 
     constructor(private router: Router, public location: Location, private element: ElementRef, private authService: AuthService) {
         this.sidebarVisible = false;
@@ -21,9 +23,11 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];        
         
     }
+
+    reloadPage($scope) {$scope.reloadPage = function(){window.location.reload();}}    
 
     sidebarOpen() {
         const toggleButton = this.toggleButton;
