@@ -1,4 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
@@ -23,8 +24,6 @@ import { AboutComponent } from './shared/about/about.component';
 import { RegisterLocalComponent } from './shared/register-local/register-local.component';
 import { ListLocalComponent } from './shared/list-local/list-local.component';
 import { EvaluateLocalComponent } from './shared/evaluate-local/evaluate-local.component';
-import { DeleteLocalComponent } from './no-shared/delete-local/delete-local.component';
-import { UpdateLocalComponent } from './no-shared/update-local/update-local.component';
 
 import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
 import { MergeLocalComponent } from './no-shared/merge-local/merge-local.component';
@@ -44,8 +43,6 @@ import { UserActionComponent } from './no-shared/user/user-action/user-action.co
         RegisterLocalComponent,
         ListLocalComponent,
         EvaluateLocalComponent,
-        DeleteLocalComponent,
-        UpdateLocalComponent,
         DashboardComponent,
         MergeLocalComponent,
         NotifyLocalComponent,
@@ -56,6 +53,7 @@ import { UserActionComponent } from './no-shared/user/user-action/user-action.co
     ],
     imports: [
         BrowserAnimationsModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         NgbModule.forRoot(),
         NgxMaskModule.forRoot(),
         FormsModule,
@@ -66,9 +64,7 @@ import { UserActionComponent } from './no-shared/user/user-action/user-action.co
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         HttpModule,
-        NgxPaginationModule,
-        
-
+        NgxPaginationModule
         //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [AuthService, AngularFirestore],

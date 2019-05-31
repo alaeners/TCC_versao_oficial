@@ -16,18 +16,18 @@
                             </div>
                             <div class="card-body">
                                 <div class="tab-content text-center">
-                                    <div class="tab-pane active" id="home" role="tabpanel">
-                                        <p style="color: black">Email: {{user.email}},</p>
-                                        <p type="password" style="color: black">Senha: {{user.password}}</p>
+                                    <div class="tab-pane active" id="email" role="tabpanel">
+                                        <p id="email" type="text" style="color: black">Email: {{user.email}},</p>
+                                        <p id="senha" type="password" style="color: black">Senha: {{user.password}}</p>
                                         <div class="content-center">
                                             <div>
                                                 <span class="fa fa-star mr-2 star" *ngFor="let star of rate"
                                                     [ngClass]="{'star-checked': star.checked}"></span>
                                             </div>
                                             <button class="btn btn-primary btn-round" type="button"
-                                                (click)="deletar(user)">Deletar</button>
+                                                (click)="deleteUser(user)">Deletar</button>
                                             <button class="btn btn-primary btn-round" type="button"
-                                                (click)="editar(user)">Editar</button>
+                                                (click)="editUsuario(user)">Editar</button>
                                             <pagination-controls (pageChange)="pageChange($event)"
                                                 class="my-pagination"></pagination-controls>
                                         </div>

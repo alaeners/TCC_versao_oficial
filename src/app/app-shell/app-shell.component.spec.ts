@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateLocalComponent } from './update-local.component';
+import { AppShellComponent } from './app-shell.component';
 
-describe('UpdateLocalComponent', () => {
-  let component: UpdateLocalComponent;
-  let fixture: ComponentFixture<UpdateLocalComponent>;
+describe('AppShellComponent', () => {
+  let component: AppShellComponent;
+  let fixture: ComponentFixture<AppShellComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateLocalComponent ]
+      declarations: [ AppShellComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateLocalComponent);
+    fixture = TestBed.createComponent(AppShellComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

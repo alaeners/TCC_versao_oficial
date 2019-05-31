@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from 'app/services/user.service';
 import { Usuario } from '../../models/Usuario';
+import { StateEnum } from 'app/shared/application-state/state-enum';
 
 @Component({
   selector: 'app-user',
@@ -22,9 +23,10 @@ export class UserComponent implements OnInit, OnDestroy {
   usuarios: Usuario[];
   config: any;
   collection = [];
+  applicationState: any;
 
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private authService: AuthService, private firestore: AngularFirestore) {
-
+ 
     this.config = {
       currentPage: 1,
       itemsPerPage: 1
@@ -39,8 +41,7 @@ export class UserComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnInit() {
-    
+  ngOnInit() {    
     var body = document.getElementsByTagName('body')[0];
     body.classList.add('user-page');
 
@@ -49,16 +50,16 @@ export class UserComponent implements OnInit, OnDestroy {
 
     this.userService.getUser().subscribe(usuarios => {
       this.usuarios = usuarios;
-    });
+    });  
+ 
   }
+
   ngOnDestroy() {
     var body = document.getElementsByTagName('body')[0];
     body.classList.remove('user-page');
 
     var navbar = document.getElementsByTagName('nav')[0];
-    navbar.classList.remove('navbar-transparent');
-
-    
+    navbar.classList.remove('navbar-transparent');    
   }
 
   pageChange(newPage: number) {
@@ -66,7 +67,27 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   cadastrar(){
+    this.router.navigate(['no-shared/user-action']);    
+  }
+
+  reloadPage(){    
+    window.location.reload();
+  }
+
+  deleteUser(usuarios: Usuario) {
+    this.userService.deleteById(usuarios.id)
+      .then(() => {
+        alert('usuario deletado');
+      })
+      .catch(() => {
+        alert('algo deu errado');
+      });
+  }
+
+  editUsuario(usuarios: Usuario): void {
+    this.applicationState.setState(StateEnum.EDIT);
+    this.applicationState.setUserToEdit(usuarios);
+    this.applicationState.setPathToBack(this.router.url);
     this.router.navigate(['no-shared/user-action']);
-    
   }
 }

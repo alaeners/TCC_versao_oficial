@@ -101,6 +101,43 @@
             ],
             "exclude": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/now-ui-kit-angular-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "now-ui-kit-angular:build",
+            "serverTarget": "now-ui-kit-angular:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "now-ui-kit-angular:build:production",
+              "serverTarget": "now-ui-kit-angular:server:production"
+            }
+          }
         }
       }
     },
