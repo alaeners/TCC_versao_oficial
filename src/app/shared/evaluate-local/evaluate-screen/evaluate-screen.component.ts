@@ -17,6 +17,7 @@ export class EvaluateScreenComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private locaisservice: LocaisService) {
     this.locaisservice.getDocumentById(this.route.snapshot.paramMap.get('id')).get()
       .subscribe((local: DocumentSnapshot<Local>) => {
+        debugger;
         this.local = local.data();
       });
   }
@@ -142,8 +143,8 @@ export class EvaluateScreenComponent implements OnInit {
       .then((data) => {
         alert('Avaliação cadastrada');
       })
-      .catch(() => {
-        alert('Ocorreu um erro ao cadastrar a avaliação');
+      .catch((err) => {
+        alert('Ocorreu um erro ao cadastrar a avaliação' + err);
       });
   }
   cancel(){

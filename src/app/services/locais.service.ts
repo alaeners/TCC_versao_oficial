@@ -69,8 +69,7 @@ export class LocaisService {
 
   saveEvaluation(local: Local, evaluationQuestions: Array<Question>): Promise<void> {
     let evaluationNote = this.calculateEvaluation(evaluationQuestions);
-
-    return this.createEvaluation(local.id, evaluationNote)
+    return this.createEvaluation(local.nome, evaluationNote)
       .then(() => {
         local.nota = evaluationNote.note;
         return this.updateLocal(local);
@@ -78,8 +77,8 @@ export class LocaisService {
       .catch();
   }
 
-  private createEvaluation(id: string, evaluation: Evaluation): Promise<void> {
-    return this.afs.collection('avaliacoes').doc(id).set(evaluation);
+  private createEvaluation(id: string, evaluation: Evaluation){
+    return this.afs.collection('locais').doc(id).collection('avaliacoes').add(evaluation);
   }
 
   private calculateEvaluation(evaluationQuestions: Array<Question>): Evaluation {
