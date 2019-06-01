@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from 'app/services/user/user.service';
 import { Usuario } from '../../models/Usuario';
+import { ApplicationStateService } from '../../services/application-state/application-state.service';
 import { StateEnum } from '../../services/application-state/state-enum';
 
 @Component({
@@ -23,9 +24,9 @@ export class UserComponent implements OnInit, OnDestroy {
   usuarios: Usuario[];
   config: any;
   collection = [];
-  applicationState: any;
 
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private authService: AuthService, private firestore: AngularFirestore) {
+
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private authService: AuthService, private firestore: AngularFirestore, private applicationState: ApplicationStateService) {
  
     this.config = {
       currentPage: 1,
@@ -78,9 +79,11 @@ export class UserComponent implements OnInit, OnDestroy {
     this.userService.deleteById(usuarios.id)
       .then(() => {
         alert('usuario deletado');
+        this.router.navigate(['shared/list-local/list-card']);
       })
       .catch(() => {
         alert('algo deu errado');
+        this.router.navigate(['shared/list-local/list-card']);
       });
   }
 

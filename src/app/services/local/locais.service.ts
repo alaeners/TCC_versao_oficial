@@ -7,6 +7,7 @@ import { Question } from 'app/models/Question';
 
 import 'rxjs/add/operator/map';
 import { Evaluation } from 'app/models/Evaluation';
+import { Usuario } from 'app/models/Usuario';
 
 
 @Injectable({

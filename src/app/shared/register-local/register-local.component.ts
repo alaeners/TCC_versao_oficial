@@ -29,7 +29,8 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
     contato: {} as Contato
   } as Local;
 
-  constructor(private router: Router, private cepService: CepService, private firestore: AngularFirestore, private modalService: NgbModal, private applicationState: ApplicationStateService, private locaisService: LocaisService) {
+  constructor(private router: Router, private cepService: CepService, private firestore: AngularFirestore, 
+    private modalService: NgbModal, private applicationState: ApplicationStateService, private locaisService: LocaisService) {
     if (applicationState.getState() === StateEnum.EDIT) {
       this.local = applicationState.getLocalToEdit();
     }

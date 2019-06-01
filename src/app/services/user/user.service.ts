@@ -28,6 +28,10 @@ export class UserService {
   }
 
 
+  updateUser(user: Usuario): Promise<void> {
+    return this.getDocumentById(user.nome).update(user);
+  }
+
   getDocumentById(id: string): AngularFirestoreDocument<Usuario> {
     return this.afs.collection('usuarios').doc(id);
   }

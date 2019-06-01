@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'app/services/auth/auth.service';
+import { Usuario } from 'app/models/Usuario';
+import { UserService } from 'app/services/user/user.service';
+import { ApplicationStateService } from '../../../services/application-state/application-state.service';
+import { StateEnum } from '../../../services/application-state/state-enum';
 
 @Component({
   selector: 'app-user-action',
@@ -16,8 +20,15 @@ export class UserActionComponent implements OnInit {
     nome: '',
     email: '',
     password: ''
-  };
-  constructor(private router: Router, private authService: AuthService, private firestore: AngularFirestore) { }
+  } as Usuario;
+  
+  constructor(private router: Router, private authService: AuthService, private firestore: AngularFirestore,
+    private userService: UserService, private applicationState: ApplicationStateService) { 
+      if (applicationState.getState() === StateEnum.EDIT) {
+        this.user = applicationState.getUserToEdit();
+      }
+
+    }
 
   ngOnInit() {
     var body = document.getElementsByTagName('body')[0];
@@ -47,7 +58,20 @@ export class UserActionComponent implements OnInit {
         this.router.navigate(['no-shared/dashboard']);
       })
       .catch(function (error) { alert(error) });
+      this.router.navigate(['no-shared/dashboard']);
 
+  }
+
+  update(): void {
+    this.userService.updateUser(this.user)
+      .then(() => {
+        alert('Local atualizado com sucesso!');
+        this.router.navigate([this.applicationState.getPathToBack()]);
+      })
+      .catch(() => {
+        alert('Erro ao atualizar o local');
+        this.router.navigate([this.applicationState.getPathToBack()]);
+      });
   }
 
 }
