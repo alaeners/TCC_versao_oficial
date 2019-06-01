@@ -10,8 +10,8 @@
                         <div class="input-group form-group-no-border input-lg"
                             [ngClass]="{'input-group-focus':focus===true}">
                             <input name="pesquisa" type="text" class="form-control" 
-                                placeholder="Digite o nome ou endereço local você deseja avaliar ..."
-                                (focus)="focus=true" (blur)="focus=false" required>
+                            placeholder="Digite o nome ou endereço local você deseja avaliar ..."
+                                (focus)="focus=true" (blur)="focus=false" [(ngModel)]="nome"  required>
                         </div>
                         <button (click)="buscaLocal()" class="btn btn-primary btn-round" type="button">
                             <i class="icon-search icon-2x "></i> Pesquisar </button>

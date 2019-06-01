@@ -63,6 +63,7 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
   }
 
   inserirLocal() {
+    this.local.nome = this.local.nome.toUpperCase();
     return this.firestore.collection('locais').doc(this.local.nome).set(this.local)
       .then(() => {
         alert('Local inserido com sucesso!');

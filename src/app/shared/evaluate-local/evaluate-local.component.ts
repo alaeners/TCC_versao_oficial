@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class EvaluateLocalComponent implements OnInit, OnDestroy {
   focus;
   focus1;
+  nome: string;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -26,7 +28,7 @@ export class EvaluateLocalComponent implements OnInit, OnDestroy {
     navbar.classList.remove('navbar-transparent');
   }
 
-  buscaLocal(){}
-
-
+  buscaLocal(){
+      this.router.navigate(['shared/list-local/list-card', "todos"], { queryParams: { nome: this.nome } });
+    }
 }

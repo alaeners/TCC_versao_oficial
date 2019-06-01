@@ -18,13 +18,15 @@ import { StateEnum } from 'app/shared/application-state/state-enum';
 export class ListCardComponent implements OnInit, OnDestroy {
 
   tipo: string;
+  nome: string;
   locais: Local[];
   config: any;
   collection = [];
   rate = new Array<Star>();
   public show: boolean = this.authService.authenticated;
 
-  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService, private authService: AuthService, private applicationState: ApplicationStateService) {
+  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService, 
+    private authService: AuthService, private applicationState: ApplicationStateService) {
     this.authService.user.subscribe(user => this.show = (user !== null));
     console.log(this.show);
 
@@ -65,10 +67,16 @@ export class ListCardComponent implements OnInit, OnDestroy {
     body.classList.add('list-card-page');
 
     this.tipo = this.route.snapshot.paramMap.get('tipo');
+    this.route.queryParamMap
+    .map(params => params.get('nome'))
+    .subscribe(nome => this.nome = nome);
 
     if (this.tipo !== 'todos') {
       this.locaisservice.returnLocalByTipo(this.tipo);
-    }
+    } else if (this.nome !== '') {
+      this.locaisservice.returnLocalByNome(this.nome.toUpperCase());
+    } 
+
     this.locaisservice.getLocais().subscribe(locais => {
       this.locais = locais;
     });

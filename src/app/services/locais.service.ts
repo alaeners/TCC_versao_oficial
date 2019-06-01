@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore'
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { Local } from '../models/Local'
 import { Question } from 'app/models/Question';
@@ -15,7 +16,7 @@ export class LocaisService {
 
   LocaisCollection: AngularFirestoreCollection<Local>;
   Locais: Observable<Local[]>
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private db: AngularFireDatabase) {
     this.Locais = this.afs.collection('locais').snapshotChanges().map(
       changes => {
         return changes.map(
@@ -33,6 +34,17 @@ export class LocaisService {
 
   returnLocalByTipo(tipo: string) {
     this.Locais = this.afs.collection('locais', ref => ref.where('tipo', '==', tipo)).snapshotChanges().map(
+      changes => {
+        return changes.map(
+          a => {
+            const data = a.payload.doc.data() as Local;
+            data.id = a.payload.doc.id;
+            return data;
+          });
+      });
+  }
+  returnLocalByNome(nome: string) {
+    this.Locais = this.afs.collection('locais', ref => ref.where('nome', '==', nome)).snapshotChanges().map(
       changes => {
         return changes.map(
           a => {
@@ -88,6 +100,8 @@ export class LocaisService {
 
     return evaluationNote;
   }
+
+  
 }
 
 
