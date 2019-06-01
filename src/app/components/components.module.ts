@@ -7,7 +7,6 @@ import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
 
 import { ComponentsComponent } from './components.component';
-import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasicComponent } from './modal/modal.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { NgbdModalBasicComponent } from './modal/modal.component';
       ],
     declarations: [
         ComponentsComponent,
-        NotificationComponent,
         NgbdModalBasicComponent
     ],
     exports: [ ComponentsComponent ]

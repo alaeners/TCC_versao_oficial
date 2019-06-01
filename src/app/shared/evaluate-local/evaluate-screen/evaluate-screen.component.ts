@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Question } from 'app/models/Question';
 import { QuestionOption } from 'app/models/QuestionOption';
 import { LocaisService } from 'app/services/locais.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Local } from 'app/models/Local';
 import { DocumentSnapshot } from '@angular/fire/firestore';
 
@@ -14,7 +14,7 @@ import { DocumentSnapshot } from '@angular/fire/firestore';
 export class EvaluateScreenComponent implements OnInit {
   local = {} as Local;
 
-  constructor(private route: ActivatedRoute, private locaisservice: LocaisService) {
+  constructor(private router: Router, private route: ActivatedRoute, private locaisservice: LocaisService) {
     this.locaisservice.getDocumentById(this.route.snapshot.paramMap.get('id')).get()
       .subscribe((local: DocumentSnapshot<Local>) => {
         this.local = local.data();
@@ -145,6 +145,9 @@ export class EvaluateScreenComponent implements OnInit {
       .catch(() => {
         alert('Ocorreu um erro ao cadastrar a avaliação');
       });
+  }
+  cancel(){
+    this.router.navigate(['/shared/list-local']);
   }
 
 }
