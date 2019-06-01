@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { CepService } from '../../services/cep.service';
+import { CepService } from '../../services/cep/cep.service';
 import { Cep } from '../../models/cep';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ApplicationStateService } from '../application-state/application-state.service';
-import { StateEnum } from '../application-state/state-enum';
+import { ApplicationStateService } from '../../services/application-state/application-state.service';
+import { StateEnum } from '../../services/application-state/state-enum';
 import { Local } from 'app/models/Local';
 import { Endereco } from 'app/models/Endereco';
 import { Contato } from 'app/models/Contato';
-import { LocaisService } from 'app/services/locais.service';
+import { LocaisService } from 'app/services/local/locais.service';
 
 @Component({
   selector: 'app-register-local',
@@ -69,8 +69,6 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
     this.local.endereco.localidade = this.cep.localidade;
     this.local.endereco.logradouro = this.cep.logradouro;
 
-
-    debugger;
     return this.firestore.collection('locais').doc(this.local.nome).set(this.local)
       .then(() => {
         alert('Local inserido com sucesso!');

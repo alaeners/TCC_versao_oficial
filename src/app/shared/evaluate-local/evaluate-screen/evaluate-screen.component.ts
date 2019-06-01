@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from 'app/models/Question';
 import { QuestionOption } from 'app/models/QuestionOption';
-import { LocaisService } from 'app/services/locais.service';
+import { LocaisService } from 'app/services/local/locais.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Local } from 'app/models/Local';
 import { DocumentSnapshot } from '@angular/fire/firestore';
@@ -17,7 +17,6 @@ export class EvaluateScreenComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private locaisservice: LocaisService) {
     this.locaisservice.getDocumentById(this.route.snapshot.paramMap.get('id')).get()
       .subscribe((local: DocumentSnapshot<Local>) => {
-        debugger;
         this.local = local.data();
       });
   }

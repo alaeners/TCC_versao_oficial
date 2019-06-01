@@ -1,13 +1,13 @@
 import { Component, OnInit, Renderer, OnDestroy } from '@angular/core';
 import { Local } from '../../../models/Local';
-import { LocaisService } from '../../../services/locais.service';
+import { LocaisService } from '../../../services/local/locais.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import { Star } from 'app/models/Star';
-import { AuthService } from '../../../services/auth.service';
-import { ApplicationStateService } from 'app/shared/application-state/application-state.service';
-import { StateEnum } from 'app/shared/application-state/state-enum';
+import { AuthService } from '../../../services/auth/auth.service';
+import { ApplicationStateService } from '../../../services/application-state/application-state.service';
+import { StateEnum } from '../../../services/application-state/state-enum';
 
 @Component({
   selector: 'app-list-card',
@@ -53,7 +53,7 @@ export class ListCardComponent implements OnInit, OnDestroy {
       );
     }
 
-    // this.calculateEvaluation(null);
+     this.calculateEvaluation(null);
   }
 
   pageChange(newPage: number) {
@@ -93,9 +93,11 @@ export class ListCardComponent implements OnInit, OnDestroy {
     this.locaisservice.deleteById(locais.nome)
       .then(() => {
         alert('local deletado');
+        this.router.navigate(['shared/list-local']);
       })
       .catch(() => {
         alert('local nao foi deletado deletado');
+        this.router.navigate(['shared/list-local']);
       });
   }
 

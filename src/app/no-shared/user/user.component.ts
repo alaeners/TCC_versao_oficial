@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { UserService } from 'app/services/user.service';
+import { UserService } from 'app/services/user/user.service';
 import { Usuario } from '../../models/Usuario';
-import { StateEnum } from 'app/shared/application-state/state-enum';
+import { StateEnum } from '../../services/application-state/state-enum';
 
 @Component({
   selector: 'app-user',

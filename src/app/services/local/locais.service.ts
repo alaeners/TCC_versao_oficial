@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore'
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { Local } from '../models/Local'
+import { Local } from '../../models/Local'
 import { Question } from 'app/models/Question';
 
 import 'rxjs/add/operator/map';
