@@ -53,7 +53,7 @@ export class ListCardComponent implements OnInit, OnDestroy {
       );
     }
 
-     this.calculateEvaluation(null);
+     //this.calculateEvaluation(null);
   }
 
   pageChange(newPage: number) {
