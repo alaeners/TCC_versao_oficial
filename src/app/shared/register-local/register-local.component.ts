@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { CepService } from '../../services/cep.service';
-import { Cep } from '../../cep';
+import { Cep } from '../../models/cep';
 import { AngularFirestore } from '@angular/fire/firestore';
 import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';

@@ -64,7 +64,7 @@ export class LocaisService {
   }
 
   updateLocal(local: Local): Promise<void> {
-    return this.getDocumentById(local.id).update(local);
+    return this.getDocumentById(local.nome).update(local);
   }
 
   saveEvaluation(local: Local, evaluationQuestions: Array<Question>): Promise<void> {

@@ -142,6 +142,8 @@ export class EvaluateScreenComponent implements OnInit {
     this.locaisservice.saveEvaluation(this.local, this.evaluationQuestions)
       .then((data) => {
         alert('Avaliação cadastrada');
+        this.router.navigate(['shared/list-local']);
+
       })
       .catch((err) => {
         alert('Ocorreu um erro ao cadastrar a avaliação' + err);
