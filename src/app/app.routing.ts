@@ -12,11 +12,11 @@ import { ListLocalComponent } from './shared/list-local/list-local.component';
 import { LoginComponent } from './shared/login/login.component';
 import { DashboardComponent } from './no-shared/dashboard/dashboard.component';
 import { RegisterLocalComponent } from './shared/register-local/register-local.component';
-//import { NgbdModalBasicComponent } from './components/modal/modal.component';
 import { UserComponent } from './no-shared/user/user.component';
 import { ListCardComponent } from './shared/list-local/list-card/list-card.component';
 import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
 import { UserActionComponent } from './no-shared/user/user-action/user-action.component';
+import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index',                pathMatch: 'full' },
@@ -30,8 +30,7 @@ const routes: Routes = [
     { path: 'no-shared/dashboard',                  component: DashboardComponent },
     { path: 'no-shared/user',                       component: UserComponent },
     { path: 'no-shared/user-action',                component: UserActionComponent },
-    //{ path: 'modal',                                component: NgbdModalBasicComponent },
-
+    { path: 'no-shared/notify-local',               component: NotifyLocalComponent },
     { path: 'index',                                component: ComponentsComponent }
 ];
 
