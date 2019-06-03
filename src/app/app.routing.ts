@@ -17,6 +17,7 @@ import { ListCardComponent } from './shared/list-local/list-card/list-card.compo
 import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
 import { UserActionComponent } from './no-shared/user/user-action/user-action.component';
 import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.component';
+import { MergeLocalComponent } from './no-shared/merge-local/merge-local.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'index',                pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
     { path: 'no-shared/user',                       component: UserComponent },
     { path: 'no-shared/user-action',                component: UserActionComponent },
     { path: 'no-shared/notify-local',               component: NotifyLocalComponent },
+    { path: 'no-shared/merge-local',                component: MergeLocalComponent },
     { path: 'index',                                component: ComponentsComponent }
 ];
 

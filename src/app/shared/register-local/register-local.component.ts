@@ -97,8 +97,8 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
         this.router.navigate([this.applicationState.getPathToBack()]);
       });
   }
-
   cancel(): void {
     this.router.navigate([this.applicationState.getPathToBack()]);
   }
+
 }
