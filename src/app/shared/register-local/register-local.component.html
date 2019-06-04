@@ -6,7 +6,7 @@
     <div class="container">
       <div class="content-center brand">
         <div class="col-md-12 mr-auto">
-          <div class="card card-signup" style="overflow: auto; max-height: 440px;">
+          <div class="card" style="overflow: scroll; max-height: 530px;">
             <div class="card-body">
               <form name="formlocal" class="form" method="post" #formCtrl="ngForm">
                 <!-- Modal -->
@@ -110,7 +110,7 @@
                     <span class="input-group-text"><i class="now-ui-icons shopping_shop"></i></span>
                   </div>
                   <input type="text" [(ngModel)]="local.contato.telefone" name="telefone" id="telefone"
-                    class="form-control" placeholder="Telefone..." required>
+                    class="form-control" placeholder="Telefone..."  mask="(00) 0000-0000" required>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">

@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { NgxMaskModule } from 'ngx-mask';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
