@@ -20,6 +20,7 @@ import { NotifyLocalComponent } from './no-shared/notify-local/notify-local.comp
 import { MergeLocalComponent } from './no-shared/merge-local/merge-local.component';
 
 const routes: Routes = [
+    { path: 'index',                                component: ComponentsComponent },
     { path: '', redirectTo: 'index',                pathMatch: 'full' },
     { path: 'shared/about',                         component: AboutComponent },
     { path: 'shared/login',                         component: LoginComponent },
@@ -32,8 +33,8 @@ const routes: Routes = [
     { path: 'no-shared/user',                       component: UserComponent },
     { path: 'no-shared/user-action',                component: UserActionComponent },
     { path: 'no-shared/notify-local',               component: NotifyLocalComponent },
-    { path: 'no-shared/merge-local',                component: MergeLocalComponent },
-    { path: 'index',                                component: ComponentsComponent }
+    { path: 'no-shared/merge-local',                component: MergeLocalComponent }
+    
 ];
 
 @NgModule({

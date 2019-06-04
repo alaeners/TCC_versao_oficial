@@ -1,11 +1,10 @@
-import { Component, OnInit, Inject, Renderer, ElementRef, ViewChild} from '@angular/core';
+import { Component, OnInit, Inject, Renderer, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import * as firebase from 'firebase';
 
 @Component({
     selector: 'app-root',
@@ -15,14 +14,17 @@ import * as firebase from 'firebase';
 export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
+    
 
-// tslint:disable-next-line: max-line-length
-    constructor( private renderer: Renderer,
-                 private router: Router,
-                 @Inject(DOCUMENT, )
-                 private document: any,
-                 private element: ElementRef,
-                 public location: Location) {}
+    // tslint:disable-next-line: max-line-length
+    constructor(private renderer: Renderer,
+        private router: Router,
+        @Inject(DOCUMENT)
+        private document: any,
+        private element: ElementRef,
+        public location: Location) { }
+
+    
 
     ngOnInit() {
 

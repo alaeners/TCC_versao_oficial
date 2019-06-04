@@ -33,6 +33,7 @@ import { ListCardComponent } from './shared/list-local/list-card/list-card.compo
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
 import { UserActionComponent } from './no-shared/user/user-action/user-action.component';
+import { ServiceWorkerModule } from '@angular/service-worker'
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import { UserActionComponent } from './no-shared/user/user-action/user-action.co
         ListCardComponent,
         EvaluateScreenComponent,
         UserActionComponent
+        
     ],
     imports: [
         BrowserAnimationsModule,
@@ -64,8 +66,8 @@ import { UserActionComponent } from './no-shared/user/user-action/user-action.co
         AngularFireDatabaseModule,
         AngularFireAuthModule,
         HttpModule,
-        NgxPaginationModule
-        //ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+        NgxPaginationModule,
+        ServiceWorkerModule.register('ngsw-worker.js')
     ],
     providers: [AuthService, AngularFirestore],
     bootstrap: [AppComponent]
