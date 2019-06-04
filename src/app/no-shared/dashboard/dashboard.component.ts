@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit {
 
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
+
+    //window.location.reload(false);  
 }
 ngOnDestroy() {
     var body = document.getElementsByTagName('body')[0];

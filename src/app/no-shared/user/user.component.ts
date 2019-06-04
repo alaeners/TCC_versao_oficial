@@ -33,6 +33,7 @@ export class UserComponent implements OnInit, OnDestroy {
       itemsPerPage: 1
     };
 
+
     this.route.queryParamMap
       .map(params => params.get('page'))
       .subscribe(page => this.config.currentPage = page);
@@ -49,6 +50,8 @@ export class UserComponent implements OnInit, OnDestroy {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.add('navbar-transparent');
 
+    this.userService.AtualizaObservable();
+
     this.userService.getUser().subscribe(usuarios => {
       this.usuarios = usuarios;
     });  
@@ -60,7 +63,7 @@ export class UserComponent implements OnInit, OnDestroy {
     body.classList.remove('user-page');
 
     var navbar = document.getElementsByTagName('nav')[0];
-    navbar.classList.remove('navbar-transparent');    
+    navbar.classList.remove('navbar-transparent');   
   }
 
   pageChange(newPage: number) {
