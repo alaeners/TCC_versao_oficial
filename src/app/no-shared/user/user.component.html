@@ -1,11 +1,11 @@
 <script>
-        function reloadThePage(){
-            window.location.reload(true);
-        } 
-        </script>
+    function reloadThePage() {
+        window.location.reload(true);
+    } 
+</script>
 
 <div class="page-header" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(assets/img/Radial-2.jpg)"></div>
+    <div class="page-header-image" style="background-image:url(assets/img/Radial-2.jpg)" alt=""></div>
     <div class="container">
         <div class="col-md-4 content-center">
             <div class="card card-login card-plain">
@@ -24,7 +24,6 @@
                                 <div class="tab-content text-center">
                                     <div class="tab-pane active" id="email" role="tabpanel">
                                         <p id="email" type="text" style="color: black">Email: {{user.email}},</p>
-                                        <p id="senha" type="password" style="color: black">Senha: {{user.password}}</p>
                                         <div class="content-center">
                                             <div>
                                                 <span class="fa fa-star mr-2 star" *ngFor="let star of rate"

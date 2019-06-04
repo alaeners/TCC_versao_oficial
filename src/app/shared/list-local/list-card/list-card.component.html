@@ -9,8 +9,8 @@
                         <div class="content-center brand">
                             <div class="col-md-12 mr-auto">
                                 <ul class="nav nav-tabs justify-content-center" role="tablist">
-                                    <li class="nav-item">
-                                        <span style="color: black">{{local.nome}}</span>
+                                    <li class="nav-item" role="tab">
+                                        <span role="tab" style="color: black">{{local.nome}}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -36,7 +36,7 @@
                                                 (click)="avaliar(local)">Avaliar</button>
                                             <button class="btn btn-primary btn-round" type="button"
                                                 (click)="deleteLocal(local)" *ngIf="show">Deletar</button>
-                                            <pagination-controls (pageChange)="pageChange($event)"
+                                            <pagination-controls  role="list" (pageChange)="pageChange($event)"
                                                 class="my-pagination"></pagination-controls>
                                         </div>
                                     </div>
