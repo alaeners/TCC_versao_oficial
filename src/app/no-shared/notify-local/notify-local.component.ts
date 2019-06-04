@@ -40,6 +40,7 @@ export class NotifyLocalComponent implements OnInit {
       this.collection.push({ i });
     }
 
+    this.locaisservice.AtualizaObservable();
     //this.locaisservice.returnLocalByEmail();
     this.locaisservice.getLocais().subscribe(locais => {
       locais.forEach(local => {

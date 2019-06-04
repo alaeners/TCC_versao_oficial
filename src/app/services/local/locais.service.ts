@@ -29,6 +29,18 @@ export class LocaisService {
       });
   }
 
+  AtualizaObservable(){
+    this.Locais = this.afs.collection('locais').snapshotChanges().map(
+      changes => {
+        return changes.map(
+          a => {
+            const data = a.payload.doc.data() as Local;
+            data.id = a.payload.doc.id;
+            return data;
+          });
+      });
+  }
+
   getLocais() {
     return this.Locais;
   }
