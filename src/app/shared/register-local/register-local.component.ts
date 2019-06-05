@@ -73,11 +73,11 @@ export class RegisterLocalComponent implements OnInit, OnDestroy {
     return this.firestore.collection('locais').doc(this.local.nome).set(this.local)
       .then(() => {
         alert('Local inserido com sucesso!');
-        this.router.navigate(['/no-shared/dashboard']);
+        this.router.navigate(['index']);
       })
       .catch(() => {
         alert('Erro ao inserir o local');
-        this.router.navigate(['/no-shared/dashboard']);
+        this.router.navigate(['index']);
       });;
 
   }
