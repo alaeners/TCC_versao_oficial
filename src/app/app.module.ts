@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -34,9 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
 import { UserActionComponent } from './no-shared/user/user-action/user-action.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { Swal } from 'sweetalert2';
 
-const Swal = require('sweetalert2');
 
 @NgModule({
     declarations: [

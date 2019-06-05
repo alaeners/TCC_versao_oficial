@@ -16,7 +16,8 @@ export class CepService {
       .then(response => {
         return this.converterRespostaParaCep(response.json())
       }).catch((error) => {
-        return window.alert(error.message)
+        debugger;
+        return window.alert('Verifique o CEP informado!');
       });
   }
 
