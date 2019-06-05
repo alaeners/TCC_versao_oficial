@@ -33,7 +33,10 @@ import { ListCardComponent } from './shared/list-local/list-card/list-card.compo
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EvaluateScreenComponent } from './shared/evaluate-local/evaluate-screen/evaluate-screen.component';
 import { UserActionComponent } from './no-shared/user/user-action/user-action.component';
-import { ServiceWorkerModule } from '@angular/service-worker'
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { Swal } from 'sweetalert2';
+
+const Swal = require('sweetalert2');
 
 @NgModule({
     declarations: [

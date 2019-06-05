@@ -1,3 +1,8 @@
+<html lang="pt-br">
+<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
 <div class="wrapper">
   <div class="page-header clear-filter" filter-color="orange">
     <div class="page-header-image rellax-header" data-rellax-speed="-7"
@@ -110,7 +115,7 @@
                     <span class="input-group-text"><i class="now-ui-icons shopping_shop"></i></span>
                   </div>
                   <input type="text" [(ngModel)]="local.contato.telefone" name="telefone" id="telefone"
-                    class="form-control" placeholder="Telefone..."  mask="(00) 0000-0000" required>
+                    class="form-control" placeholder="Telefone..." mask="(00) 0000-0000" required>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -167,7 +172,8 @@
                     (click)="inserirLocal()">Cadastrar</button>
                   <button *ngIf="isStateEdit()" class="btn btn-success btn-round mr-5" type="button"
                     (click)="update()">Salvar</button>
-                  <button *ngIf="isStateEdit()" class="btn btn-primary btn-round" type="button" (click)="cancel()">Cancelar</button>
+                  <button *ngIf="isStateEdit()" class="btn btn-primary btn-round" type="button"
+                    (click)="cancel()">Cancelar</button>
                 </div>
               </form>
             </div>
@@ -177,3 +183,4 @@
     </div>
   </div>
 </div>
+</html>
