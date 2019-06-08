@@ -8,6 +8,7 @@ import { Star } from 'app/models/Star';
 import { AuthService } from '../../../services/auth/auth.service';
 import { ApplicationStateService } from '../../../services/application-state/application-state.service';
 import { StateEnum } from '../../../services/application-state/state-enum';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-list-card',
@@ -25,7 +26,7 @@ export class ListCardComponent implements OnInit, OnDestroy {
   rate = new Array<Star>();
   public show: boolean = this.authService.authenticated;
 
-  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService, 
+  constructor(private route: ActivatedRoute, private router: Router, private locaisservice: LocaisService,
     private authService: AuthService, private applicationState: ApplicationStateService) {
     this.authService.user.subscribe(user => this.show = (user !== null));
     console.log(this.show);
@@ -52,8 +53,6 @@ export class ListCardComponent implements OnInit, OnDestroy {
         } as Star
       );
     }
-
-     //this.calculateEvaluation(null);
   }
 
   pageChange(newPage: number) {
@@ -68,14 +67,14 @@ export class ListCardComponent implements OnInit, OnDestroy {
 
     this.tipo = this.route.snapshot.paramMap.get('tipo');
     this.route.queryParamMap
-    .map(params => params.get('nome'))
-    .subscribe(nome => this.nome = nome);
+      .map(params => params.get('nome'))
+      .subscribe(nome => this.nome = nome);
 
     if (this.tipo !== 'todos') {
       this.locaisservice.returnLocalByTipo(this.tipo);
     } else if (this.nome !== '') {
       this.locaisservice.returnLocalByNome(this.nome.toUpperCase());
-    } 
+    }
 
     this.locaisservice.getLocais().subscribe(locais => {
       this.locais = locais;
@@ -101,13 +100,28 @@ export class ListCardComponent implements OnInit, OnDestroy {
       });
   }
 
-  calculateEvaluation(local: Local): void {
-    if (local.nota === 6) {
-      local.nota--;
-    }
+  calculateEvaluation(local: Local): boolean {
+    let evaluationNote = 0;
+    this.restartStarts();
 
-    for (let index = 0; index <= local.nota; index++) {
-      this.rate[index].checked = true;
+    if (!isNullOrUndefined(local) && !isNullOrUndefined(local.nota)) {
+      if (local.nota === 6) {
+        evaluationNote = local.nota - 2;
+      } else {
+        evaluationNote = local.nota - 1;
+      }
+
+      for (let index = 0; index <= evaluationNote; index++) {
+        this.rate[index].checked = true;
+      }
+    } 
+
+    return true;
+  }
+
+  restartStarts():void{
+    for (let index = 0; index <= 4; index++) {
+      this.rate[index].checked = false;
     }
   }
 

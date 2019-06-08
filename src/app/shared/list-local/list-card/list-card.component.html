@@ -25,9 +25,9 @@
                                         <p style="color: black">Telefone: {{local.contato.telefone}}</p>
                                         <p style="color: black">E-mail: {{local.contato.email}}</p>
                                         <p style="color: black">Site: {{local.contato.website}}</p>
-                                        <p style="color: black">Nota: {{local.nota}}</p>
+                                        <p style="color: black">Nota: {{local.nota}} <span *ngIf="!local.nota">Sem avaliação</span></p>
                                         <div class="content-center">
-                                            <div>
+                                            <div *ngIf="calculateEvaluation(local)">
                                                 <span class="fa fa-star mr-2 star" *ngFor="let star of rate"
                                                     [ngClass]="{'star-checked': star.checked}"></span>
                                             </div>
